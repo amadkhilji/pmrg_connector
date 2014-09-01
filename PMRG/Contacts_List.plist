@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>western</key>
+	<array>
+		<dict>
+			<key>heading</key>
+			<string>Leasing | Western Division</string>
+			<key>name</key>
+			<string>Jim Proehl</string>
+			<key>title</key>
+			<string>Executive Vice President/Managing Director</string>
+			<key>description</key>
+			<string>O 949.390.5555 | C 949.903.1151 | F 949.390.5501</string>
+			<key>email</key>
+			<string>jproehl@pmrg.com</string>
+			<key>image</key>
+			<string>Proehl_Jim.png</string>
+		</dict>
+	</array>
+	<key>central</key>
+	<array>
+		<dict>
+			<key>heading</key>
+			<string>Leasing | Houston/Central Division</string>
+			<key>name</key>
+			<string>Wade Bowlin</string>
+			<key>title</key>
+			<string>Executive Vice President/Managing Director</string>
+			<key>description</key>
+			<string>O 713.209.5753 | C 713.291.7677 | F 713.209.5782</string>
+			<key>email</key>
+			<string>wbowlin@pmrg.com</string>
+			<key>image</key>
+			<string>Bowlin_Wade.png</string>
+		</dict>
+		<dict>
+			<key>heading</key>
+			<string></string>
+			<key>name</key>
+			<string>John Spafford</string>
+			<key>title</key>
+			<string>Executive Vice President/Director of Leasing</string>
+			<key>description</key>
+			<string>O 713.209.5823 | C 713.515.3295 | F 713.209.5782</string>
+			<key>email</key>
+			<string>jspafford@pmrg.com</string>
+			<key>image</key>
+			<string>Spafford_John.png</string>
+		</dict>
+		<dict>
+			<key>heading</key>
+			<string></string>
+			<key>name</key>
+			<string>Brad Sinclair</string>
+			<key>title</key>
+			<string>Executive Vice President</string>
+			<key>description</key>
+			<string>O 713.209.5965 | F 713.209.5782</string>
+			<key>email</key>
+			<string>bsinclair@pmrg.com</string>
+			<key>image</key>
+			<string>Sinclair_Brad.png</string>
+		</dict>
+		<dict>
+			<key>heading</key>
+			<string>Leasing | Dallas</string>
+			<key>name</key>
+			<string>Kurt Cherry</string>
+			<key>title</key>
+			<string>Executive Vice President</string>
+			<key>description</key>
+			<string>O 972.421.3322 | C 972.333.3927 | F 972.421.3301</string>
+			<key>email</key>
+			<string>kcherry@pmrg.com</string>
+			<key>image</key>
+			<string>Cherry_Kurt.png</string>
+		</dict>
+	</array>
+	<key>southeast</key>
+	<array>
+		<dict>
+			<key>heading</key>
+			<string>Leasing | Southeast Division</string>
+			<key>name</key>
+			<string>Bill Weghorst</string>
+			<key>title</key>
+			<string>Executive Vice President/Managing Director</string>
+			<key>description</key>
+			<string>O 404.671.4702 | C 404.317.2259 | F 404.760.4640</string>
+			<key>email</key>
+			<string>bweghorst@pmrg.com</string>
+			<key>image</key>
+			<string>Weghorst_Bill.png</string>
+		</dict>
+	</array>
+	<key>northeast</key>
+	<array>
+		<dict>
+			<key>heading</key>
+			<string>Leasing | Northeast Division</string>
+			<key>name</key>
+			<string>David Parker</string>
+			<key>title</key>
+			<string>Executive Vice President/Managing Director</string>
+			<key>description</key>
+			<string>O 202.503.1850 | C 703.615.0259 | F 202.503.1808</string>
+			<key>email</key>
+			<string>dparker@pmrg.com</string>
+			<key>image</key>
+			<string>Parker_David.png</string>
+		</dict>
+	</array>
+</dict>
+</plist>

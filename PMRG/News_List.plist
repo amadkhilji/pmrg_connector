@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>date</key>
+		<string>Aug 1,2014</string>
+		<key>news</key>
+		<string>HBJ: New real estate investment fund invests in Houston office building</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<string>Jul 31,2014</string>
+		<key>news</key>
+		<string>GlobeSt: The Roseview Group, PMRG Form $250M Fund</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<string>Jul 30,2014</string>
+		<key>news</key>
+		<string>Roseview Evergreen Fund &amp; PM Realty Group Announce The Formation off a $250 Million Fund</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<string>Jul 30,2014</string>
+		<key>news</key>
+		<string>Roseview, PM Target Office Deals: A new joint venture aims to buy $250 million of office properties over the next three years</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<string>Jul 29,2014</string>
+		<key>news</key>
+		<string>PM Realty Group Awarded Property Management Assignment for Texas Center for Proton Therapy</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<string>Jul 29,2014</string>
+		<key>news</key>
+		<string>PM Realty Group Awarded Leasing of Westway One</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<string>Jul 29,2014</string>
+		<key>news</key>
+		<string>PM Realty Group Awarded Leasing Assignment at 10333 Richmond</string>
+	</dict>
+</array>
+</plist>
