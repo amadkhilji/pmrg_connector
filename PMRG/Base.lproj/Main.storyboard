@@ -395,6 +395,15 @@
                                     <outlet property="delegate" destination="IyY-nF-Y5U" id="oaE-Or-9au"/>
                                 </connections>
                             </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="MrU-Pc-sNQ">
+                                <rect key="frame" x="0.0" y="568" width="320" height="411"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="IyY-nF-Y5U" id="IDn-tD-kCu"/>
+                                    <outlet property="delegate" destination="IyY-nF-Y5U" id="PnS-ee-6l3"/>
+                                </connections>
+                            </tableView>
                             <view contentMode="scaleToFill" id="Caw-LB-SVw">
                                 <rect key="frame" x="0.0" y="568" width="320" height="411"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -405,7 +414,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="separator_bubbles.png" id="EEc-lc-vem">
-                                        <rect key="frame" x="2" y="9" width="317" height="22"/>
+                                        <rect key="frame" x="2" y="8" width="317" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about_us_cover_photo.png" id="EUC-Ih-Vjy">
@@ -568,6 +577,7 @@ Portfolio valued in excess of $35 billion</string>
                         <outlet property="news_btn" destination="jyg-cC-G6F" id="n6M-Je-Sbs"/>
                         <outlet property="news_tableView" destination="yHm-Wo-f0j" id="dh8-zF-Qae"/>
                         <outlet property="social_btn" destination="AY9-aY-70a" id="IU4-X9-DEQ"/>
+                        <outlet property="social_tableView" destination="MrU-Pc-sNQ" id="Uka-W3-8hn"/>
                         <outlet property="timeline_btn" destination="yGe-48-FS3" id="v0g-BG-YaH"/>
                         <outlet property="timeline_tableView" destination="ZB6-3M-mLZ" id="6Wb-nY-pOw"/>
                         <outlet property="top_bar" destination="SPT-AI-dtG" id="HFf-Gb-6UQ"/>

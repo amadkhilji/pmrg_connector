@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770F858519BB54C200E9EF11 /* SocialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770F858319BB54C200E9EF11 /* SocialCell.m */; };
+		770F858619BB54C200E9EF11 /* SocialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 770F858419BB54C200E9EF11 /* SocialCell.xib */; };
+		770F858919BB597000E9EF11 /* fb_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 770F858719BB597000E9EF11 /* fb_icon.png */; };
+		770F858A19BB597000E9EF11 /* twitter_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 770F858819BB597000E9EF11 /* twitter_icon.png */; };
+		770F859819BB628900E9EF11 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 770F858D19BB628900E9EF11 /* SDImageCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		770F859919BB628900E9EF11 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 770F858F19BB628900E9EF11 /* SDWebImageDownloader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		770F859A19BB628900E9EF11 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 770F859219BB628900E9EF11 /* SDWebImageManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		770F859B19BB628900E9EF11 /* UIImage+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 770F859519BB628900E9EF11 /* UIImage+WebCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		770F859C19BB628900E9EF11 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 770F859719BB628900E9EF11 /* UIImageView+WebCache.m */; };
+		774BCCDA19B9A8660006FBC8 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774BCCD919B9A8660006FBC8 /* Accounts.framework */; };
+		774BCCDC19B9A86C0006FBC8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774BCCDB19B9A86C0006FBC8 /* Social.framework */; };
+		774BCCDE19B9A8720006FBC8 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774BCCDD19B9A8720006FBC8 /* Twitter.framework */; };
+		774BCCE019B9A8A20006FBC8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774BCCDF19B9A8A20006FBC8 /* FacebookSDK.framework */; };
 		774DCE5D19B30A390093B47A /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 774DCE5B19B30A390093B47A /* NewsCell.m */; };
 		774DCE5E19B30A390093B47A /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 774DCE5C19B30A390093B47A /* NewsCell.xib */; };
 		774DCE6019B31AD20093B47A /* Timeline_List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 774DCE5F19B31AD20093B47A /* Timeline_List.plist */; };
@@ -156,6 +169,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		770F858219BB54C200E9EF11 /* SocialCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialCell.h; sourceTree = "<group>"; };
+		770F858319BB54C200E9EF11 /* SocialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialCell.m; sourceTree = "<group>"; };
+		770F858419BB54C200E9EF11 /* SocialCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialCell.xib; sourceTree = "<group>"; };
+		770F858719BB597000E9EF11 /* fb_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_icon.png; sourceTree = "<group>"; };
+		770F858819BB597000E9EF11 /* twitter_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_icon.png; sourceTree = "<group>"; };
+		770F858C19BB628900E9EF11 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
+		770F858D19BB628900E9EF11 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
+		770F858E19BB628900E9EF11 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloader.h; sourceTree = "<group>"; };
+		770F858F19BB628900E9EF11 /* SDWebImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloader.m; sourceTree = "<group>"; };
+		770F859019BB628900E9EF11 /* SDWebImageDownloaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloaderDelegate.h; sourceTree = "<group>"; };
+		770F859119BB628900E9EF11 /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
+		770F859219BB628900E9EF11 /* SDWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageManager.m; sourceTree = "<group>"; };
+		770F859319BB628900E9EF11 /* SDWebImageManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManagerDelegate.h; sourceTree = "<group>"; };
+		770F859419BB628900E9EF11 /* UIImage+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WebCache.h"; sourceTree = "<group>"; };
+		770F859519BB628900E9EF11 /* UIImage+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebCache.m"; sourceTree = "<group>"; };
+		770F859619BB628900E9EF11 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
+		770F859719BB628900E9EF11 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		774BCCD919B9A8660006FBC8 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		774BCCDB19B9A86C0006FBC8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		774BCCDD19B9A8720006FBC8 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		774BCCDF19B9A8A20006FBC8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		774DCE5A19B30A390093B47A /* NewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
 		774DCE5B19B30A390093B47A /* NewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
 		774DCE5C19B30A390093B47A /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
@@ -321,8 +355,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				774BCCDE19B9A8720006FBC8 /* Twitter.framework in Frameworks */,
+				774BCCDC19B9A86C0006FBC8 /* Social.framework in Frameworks */,
+				774BCCDA19B9A8660006FBC8 /* Accounts.framework in Frameworks */,
 				77CDA26B19B38A8500B02BD4 /* MapKit.framework in Frameworks */,
 				77B8F0E719A12E96001CB660 /* CoreGraphics.framework in Frameworks */,
+				774BCCE019B9A8A20006FBC8 /* FacebookSDK.framework in Frameworks */,
 				77B8F0E919A12E96001CB660 /* UIKit.framework in Frameworks */,
 				77B8F0E519A12E96001CB660 /* Foundation.framework in Frameworks */,
 			);
@@ -341,9 +379,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		770F858B19BB628900E9EF11 /* SDWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				770F858C19BB628900E9EF11 /* SDImageCache.h */,
+				770F858D19BB628900E9EF11 /* SDImageCache.m */,
+				770F858E19BB628900E9EF11 /* SDWebImageDownloader.h */,
+				770F858F19BB628900E9EF11 /* SDWebImageDownloader.m */,
+				770F859019BB628900E9EF11 /* SDWebImageDownloaderDelegate.h */,
+				770F859119BB628900E9EF11 /* SDWebImageManager.h */,
+				770F859219BB628900E9EF11 /* SDWebImageManager.m */,
+				770F859319BB628900E9EF11 /* SDWebImageManagerDelegate.h */,
+				770F859419BB628900E9EF11 /* UIImage+WebCache.h */,
+				770F859519BB628900E9EF11 /* UIImage+WebCache.m */,
+				770F859619BB628900E9EF11 /* UIImageView+WebCache.h */,
+				770F859719BB628900E9EF11 /* UIImageView+WebCache.m */,
+			);
+			path = SDWebImage;
+			sourceTree = "<group>";
+		};
 		77699D7619B1D2A1009EC88B /* CompanyScreens */ = {
 			isa = PBXGroup;
 			children = (
+				770F858719BB597000E9EF11 /* fb_icon.png */,
+				770F858819BB597000E9EF11 /* twitter_icon.png */,
 				77699D7719B1D2A1009EC88B /* about_mission_statement.png */,
 				77699D7819B1D2A1009EC88B /* about_us_cover_photo.png */,
 				77699D7919B1D2A1009EC88B /* blue_circle.png */,
@@ -379,6 +438,10 @@
 		77B8F0E319A12E96001CB660 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				774BCCDF19B9A8A20006FBC8 /* FacebookSDK.framework */,
+				774BCCDD19B9A8720006FBC8 /* Twitter.framework */,
+				774BCCDB19B9A86C0006FBC8 /* Social.framework */,
+				774BCCD919B9A8660006FBC8 /* Accounts.framework */,
 				77CDA26A19B38A8500B02BD4 /* MapKit.framework */,
 				77B8F0E419A12E96001CB660 /* Foundation.framework */,
 				77B8F0E619A12E96001CB660 /* CoreGraphics.framework */,
@@ -593,6 +656,7 @@
 		77B8F15D19A130A1001CB660 /* SharedLibs */ = {
 			isa = PBXGroup;
 			children = (
+				770F858B19BB628900E9EF11 /* SDWebImage */,
 				77B8F15E19A130A1001CB660 /* MFSideMenu */,
 			);
 			path = SharedLibs;
@@ -673,6 +737,9 @@
 				774DCE6119B31F650093B47A /* TimelineCell.h */,
 				774DCE6219B31F650093B47A /* TimelineCell.m */,
 				774DCE6319B31F650093B47A /* TimelineCell.xib */,
+				770F858219BB54C200E9EF11 /* SocialCell.h */,
+				770F858319BB54C200E9EF11 /* SocialCell.m */,
+				770F858419BB54C200E9EF11 /* SocialCell.xib */,
 			);
 			path = CompanyViewControllers;
 			sourceTree = "<group>";
@@ -839,6 +906,7 @@
 				77B8F17A19A130A1001CB660 /* top_bar_logo.png in Resources */,
 				77699D8519B1D2A1009EC88B /* grey_circle.png in Resources */,
 				77B8F0FD19A12E96001CB660 /* Images.xcassets in Resources */,
+				770F858919BB597000E9EF11 /* fb_icon.png in Resources */,
 				77681CE019A482F40000F372 /* main_bg1.png in Resources */,
 				77B8F18919A130A1001CB660 /* Icon-76@2x.png in Resources */,
 				77B8F19019A130A1001CB660 /* Intro_bg3.png in Resources */,
@@ -851,6 +919,7 @@
 				77681CE319A482F40000F372 /* main_bg3_i5.png in Resources */,
 				77CDA24319B36AAB00B02BD4 /* oc_medical_image.png in Resources */,
 				77C6FB3619AA140B00A74996 /* Cherry_Kurt.png in Resources */,
+				770F858619BB54C200E9EF11 /* SocialCell.xib in Resources */,
 				77B8F19619A130A1001CB660 /* dots_bottom.png in Resources */,
 				77B8F16B19A130A1001CB660 /* contacts_cell_bg.png in Resources */,
 				77C6FB3A19AA140B00A74996 /* Spafford_John.png in Resources */,
@@ -905,6 +974,7 @@
 				77CDA24419B36AAB00B02BD4 /* oc_office_image.png in Resources */,
 				77B8F18A19A130A1001CB660 /* iTunesArtwork.png in Resources */,
 				77681CE519A482F40000F372 /* main_bg4_i5.png in Resources */,
+				770F858A19BB597000E9EF11 /* twitter_icon.png in Resources */,
 				77681CE119A482F40000F372 /* main_bg2_i5.png in Resources */,
 				77B8F17B19A130A1001CB660 /* western_btn.png in Resources */,
 				77681CE219A482F40000F372 /* main_bg2.png in Resources */,
@@ -957,7 +1027,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				774DCE6419B31F650093B47A /* TimelineCell.m in Sources */,
+				770F859A19BB628900E9EF11 /* SDWebImageManager.m in Sources */,
+				770F859C19BB628900E9EF11 /* UIImageView+WebCache.m in Sources */,
 				77B8F1BE19A13A98001CB660 /* CompanyViewController.m in Sources */,
+				770F858519BB54C200E9EF11 /* SocialCell.m in Sources */,
 				77B8F1A419A130A1001CB660 /* SplashViewController.m in Sources */,
 				77C6FB3F19AA144200A74996 /* ContactsCell.m in Sources */,
 				77CDA26219B37A3800B02BD4 /* ReportsCell.m in Sources */,
@@ -974,6 +1047,9 @@
 				77B8F1BB19A13A88001CB660 /* ContactsViewController.m in Sources */,
 				77B8F1AE19A139A6001CB660 /* SideMenuViewController.m in Sources */,
 				77B8F0F119A12E96001CB660 /* main.m in Sources */,
+				770F859919BB628900E9EF11 /* SDWebImageDownloader.m in Sources */,
+				770F859819BB628900E9EF11 /* SDImageCache.m in Sources */,
+				770F859B19BB628900E9EF11 /* UIImage+WebCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1100,6 +1176,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Doug Berry (MME6H9MMU5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Doug Berry (MME6H9MMU5)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PMRG/PMRG-Prefix.pch";
 				INFOPLIST_FILE = "PMRG/PMRG-Info.plist";
@@ -1116,6 +1196,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PMRG/PMRG-Prefix.pch";
 				INFOPLIST_FILE = "PMRG/PMRG-Info.plist";

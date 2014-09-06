@@ -22,8 +22,12 @@ typedef enum {
     IntroBackgroundImage    imageType;
 }
 
+@property (nonatomic, readonly) NSMutableArray  *facebookFeed, *twitterFeed;
+
 +(AppInfo*)sharedInfo;
 
+-(void)loadFacebookFeed:(NSArray*)list;
+-(void)loadTwitterFeed:(NSArray*)list;
 -(UIImage*)getIntroBackgroundImage;
 -(UIImage*)getMainBackgroundImage;
 -(UIImage*)getCompanyBackgroundImage;

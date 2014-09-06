@@ -9,10 +9,16 @@
 #import "CompanyViewController.h"
 #import "NewsCell.h"
 #import "TimelineCell.h"
+#import "SocialCell.h"
+#import "UIImageView+WebCache.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface CompanyViewController ()
 
 -(void)configureLayout;
+-(void)getSocialNewsFeed;
+-(void)getFacebookFeed;
+-(void)getTwitterFeed;
 
 @end
 
@@ -34,7 +40,12 @@
     bg_image.image = [[AppInfo sharedInfo] getCompanyBackgroundImage];
     newsList = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"News_List" ofType:@"plist"]];
     timelineList = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Timeline_List" ofType:@"plist"]];
+    socialFeed = [NSMutableArray arrayWithArray:[AppInfo sharedInfo].facebookFeed];
     [self configureLayout];
+    
+    if ([[FBSession activeSession] isOpen]) {
+        [self getFacebookFeed];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -78,6 +89,10 @@
     frame.origin.y = top_bar.frame.origin.y+top_bar.frame.size.height;
     frame.size.height = bottom_bar.frame.origin.y-frame.origin.y;
     timeline_tableView.frame = frame;
+    frame = social_tableView.frame;
+    frame.origin.y = (top_bar.frame.origin.y+top_bar.frame.size.height)-20.0;
+    frame.size.height = (bottom_bar.frame.origin.y-frame.origin.y)+20.0;
+    social_tableView.frame = frame;
     
     about_btn.selected = YES;
     timeline_btn.selected = NO;
@@ -87,10 +102,53 @@
     about_us_view.hidden = NO;
     news_tableView.hidden = YES;
     timeline_tableView.hidden = YES;
+    social_tableView.hidden = YES;
     
     news_tableView.tableHeaderView = newsHeaderView;
     news_tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, news_tableView.frame.size.width, 15.0)];
     timeline_tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, news_tableView.frame.size.width, 15.0)];
+    social_tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, social_tableView.frame.size.width, 15.0)];
+}
+
+-(void)getSocialNewsFeed {
+    
+    if ([[FBSession activeSession] isOpen]) {
+        [self getFacebookFeed];
+    }
+    else {
+        [FBSession openActiveSessionWithReadPermissions:[NSArray arrayWithObjects:@"read_stream", nil] allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error){
+            if (!error && status == FBSessionStateOpen) {
+                [self getFacebookFeed];
+            }
+        }];
+    }
+}
+
+-(void)getFacebookFeed {
+    
+    [social_btn setUserInteractionEnabled:NO];
+    [FBRequestConnection startWithGraphPath:@"/145542828839722/posts"
+                                 parameters:[NSDictionary dictionaryWithObject:@"100" forKey:@"limit"]
+                                 HTTPMethod:@"GET"
+                          completionHandler:^(
+                                              FBRequestConnection *connection,
+                                              id result,
+                                              NSError *error
+                                              ) {
+                              /* handle the result */
+                              NSArray *list = [result objectForKey:@"data"];
+                              [[AppInfo sharedInfo] loadFacebookFeed:list];
+                              if ([[AppInfo sharedInfo].facebookFeed count] > 0) {
+                                  [socialFeed removeAllObjects];
+                                  [socialFeed addObjectsFromArray:[AppInfo sharedInfo].facebookFeed];
+                              }
+                              [social_btn setUserInteractionEnabled:YES];
+                              [social_tableView reloadData];
+                          }];
+}
+
+-(void)getTwitterFeed {
+    
 }
 
 #pragma mark
@@ -119,6 +177,7 @@
     
     news_tableView.hidden = YES;
     timeline_tableView.hidden = YES;
+    social_tableView.hidden = YES;
     about_us_view.hidden = NO;
 }
 
@@ -131,6 +190,7 @@
     
     news_tableView.hidden = YES;
     about_us_view.hidden = YES;
+    social_tableView.hidden = YES;
     timeline_tableView.hidden = NO;
     
     [timeline_tableView reloadData];
@@ -145,6 +205,7 @@
     
     about_us_view.hidden = YES;
     timeline_tableView.hidden = YES;
+    social_tableView.hidden = YES;
     news_tableView.hidden = NO;
     
     [news_tableView reloadData];
@@ -160,6 +221,13 @@
     about_us_view.hidden = YES;
     timeline_tableView.hidden = YES;
     news_tableView.hidden = YES;
+    social_tableView.hidden = NO;
+    
+    [social_tableView reloadData];
+    
+    if ([socialFeed count] == 0) {
+        [self getSocialNewsFeed];
+    }
 }
 
 #pragma mark
@@ -189,6 +257,15 @@
         }
         return height+40.0;
     }
+    else if (social_btn.selected) {
+        NSDictionary *feed = [socialFeed objectAtIndex:indexPath.row];
+        if ([feed objectForKey:@"type"] && [[feed objectForKey:@"type"] hasPrefix:@"photo"]) {
+            return 240.0;
+        }
+        else {
+            return 115.0;
+        }
+    }
     return 0.0;
 }
 
@@ -199,6 +276,9 @@
     }
     else if (timeline_btn.selected) {
         return [timelineList count];
+    }
+    else if (social_btn.selected) {
+        return [socialFeed count];
     }
     return 0;//[contactsList count];
 }
@@ -257,6 +337,60 @@
         frame.size.height = height+40.0;
         cell.frame = frame;
         
+        return cell;
+    }
+    else if (social_btn.selected) {
+        static NSString *cellIdentifier = @"SocialCellIdentifier";
+        SocialCell *cell = (SocialCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"SocialCell" owner:self options:nil] lastObject];
+        }
+        
+        NSDictionary *feed = [socialFeed objectAtIndex:indexPath.row];
+        if ([feed objectForKey:@"social_type"] && [[feed objectForKey:@"social_type"] isEqualToString:@"Facebook"]) {
+            cell.tag_lbl.hidden = YES;
+            cell.social_icon.image = [UIImage imageNamed:@"fb_icon.png"];
+        }
+        else {
+            cell.tag_lbl.hidden = NO;
+            cell.social_icon.image = [UIImage imageNamed:@"twitter_icon.png"];
+        }
+        if ([feed objectForKey:@"type"] && [[feed objectForKey:@"type"] hasPrefix:@"photo"]) {
+            NSString *image_url = [feed objectForKey:@"picture"];
+            if (image_url) {
+                cell.social_image.hidden = NO;
+                [cell.social_image setImageWithURL:[NSURL URLWithString:image_url]];
+            }
+            else {
+                cell.social_image.hidden = YES;
+            }
+        }
+        else {
+            cell.social_image.hidden = YES;
+        }
+        if ([feed objectForKey:@"message"] && [[feed objectForKey:@"message"] length] > 0) {
+            cell.detail_TV.text = [feed objectForKey:@"message"];
+        }
+        else if ([feed objectForKey:@"description"] && [[feed objectForKey:@"description"] length] > 0) {
+            cell.detail_TV.text = [feed objectForKey:@"description"];
+        }
+        else if ([feed objectForKey:@"caption"] && [[feed objectForKey:@"caption"] length] > 0) {
+            cell.detail_TV.text = [feed objectForKey:@"caption"];
+        }
+        else {
+            cell.detail_TV.text = @"PM Realty Group";
+        }
+        if ([feed objectForKey:@"link"] && [[feed objectForKey:@"link"] length] > 0) {
+            [cell.link_btn setTitle:[feed objectForKey:@"link"] forState:UIControlStateNormal];
+            cell.link_btn.hidden = NO;
+        }
+        else if ([feed objectForKey:@"caption"] && [[feed objectForKey:@"caption"] length] > 0) {
+            [cell.link_btn setTitle:[feed objectForKey:@"caption"] forState:UIControlStateNormal];
+            cell.link_btn.hidden = NO;
+        }
+        else {
+            cell.link_btn.hidden = YES;
+        }
         return cell;
     }
     

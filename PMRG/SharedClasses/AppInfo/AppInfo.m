@@ -16,6 +16,8 @@
 
 @implementation AppInfo
 
+@synthesize facebookFeed, twitterFeed;
+
 static AppInfo *singletonInstance;
 +(AppInfo*)sharedInfo {
     
@@ -44,6 +46,9 @@ static AppInfo *singletonInstance;
         
         imageType = IntroBackgroundImage1;
         [self loadIntroBackgroundImage];
+        
+        facebookFeed = [[NSMutableArray alloc] init];
+        twitterFeed = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -67,6 +72,53 @@ static AppInfo *singletonInstance;
     NSInteger  introImageType = (imageType%4)+1;
     [defaults setInteger:introImageType forKey:k_BACKGROUND_IMAGE_TYPE];
     [defaults synchronize];
+}
+
+-(void)loadFacebookFeed:(NSArray*)list {
+
+    if ([list count] > 0) {
+        [facebookFeed removeAllObjects];
+        for (int i=0; i<[list count]; i++) {
+            NSMutableDictionary *data = [NSMutableDictionary dictionary];
+            [data setObject:[[list objectAtIndex:i] objectForKey:@"id"] forKey:@"id"];
+            [data setObject:[[list objectAtIndex:i] objectForKey:@"from"] forKey:@"from"];
+            if ([[list objectAtIndex:i] objectForKey:@"message"]) {
+                [data setObject:[[list objectAtIndex:i] objectForKey:@"message"] forKey:@"message"];
+            }
+            else if ([[list objectAtIndex:i] objectForKey:@"story"]) {
+                [data setObject:[[list objectAtIndex:i] objectForKey:@"story"] forKey:@"message"];
+            }
+            if ([[list objectAtIndex:i] objectForKey:@"description"]) {
+                [data setObject:[[list objectAtIndex:i] objectForKey:@"description"] forKey:@"description"];
+            }
+            if ([[list objectAtIndex:i] objectForKey:@"name"]) {
+                [data setObject:[[list objectAtIndex:i] objectForKey:@"name"] forKey:@"name"];
+            }
+            if ([[list objectAtIndex:i] objectForKey:@"caption"]) {
+                [data setObject:[[list objectAtIndex:i] objectForKey:@"caption"] forKey:@"caption"];
+            }
+            if ([[list objectAtIndex:i] objectForKey:@"link"]) {
+                [data setObject:[[list objectAtIndex:i] objectForKey:@"link"] forKey:@"link"];
+            }
+            if ([[list objectAtIndex:i] objectForKey:@"picture"]) {
+                [data setObject:[[list objectAtIndex:i] objectForKey:@"picture"] forKey:@"picture"];
+            }
+            if ([[list objectAtIndex:i] objectForKey:@"type"]) {
+                [data setObject:[[list objectAtIndex:i] objectForKey:@"type"] forKey:@"type"];
+            }
+            [data setObject:[[list objectAtIndex:i] objectForKey:@"created_time"] forKey:@"created_time"];
+            [data setObject:@"Facebook" forKey:@"social_type"];
+            [facebookFeed addObject:data];
+        }
+    }
+}
+
+-(void)loadTwitterFeed:(NSArray*)list {
+    
+    if ([list count] > 0) {
+        [twitterFeed removeAllObjects];
+        [twitterFeed addObjectsFromArray:list];
+    }
 }
 
 -(UIImage*)getIntroBackgroundImage {

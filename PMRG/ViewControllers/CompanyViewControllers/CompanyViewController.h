@@ -15,7 +15,7 @@
     IBOutlet UITableView    *timeline_tableView, *news_tableView, *social_tableView;
     IBOutlet UIButton       *about_btn, *timeline_btn, *news_btn, *social_btn;
     
-    NSMutableArray          *newsList, *timelineList;
+    NSMutableArray          *newsList, *timelineList, *socialFeed;
 }
 
 -(IBAction)menuAction:(id)sender;
