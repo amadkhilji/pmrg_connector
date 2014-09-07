@@ -16,6 +16,9 @@
 		770F859A19BB628900E9EF11 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 770F859219BB628900E9EF11 /* SDWebImageManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		770F859B19BB628900E9EF11 /* UIImage+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 770F859519BB628900E9EF11 /* UIImage+WebCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		770F859C19BB628900E9EF11 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 770F859719BB628900E9EF11 /* UIImageView+WebCache.m */; };
+		7745DDA519BC5B2F00EC9D69 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7745DDA119BC5B2F00EC9D69 /* MBProgressHUD.m */; };
+		7745DDA619BC5B2F00EC9D69 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7745DDA219BC5B2F00EC9D69 /* SVProgressHUD.bundle */; };
+		7745DDA719BC5B2F00EC9D69 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7745DDA419BC5B2F00EC9D69 /* SVProgressHUD.m */; };
 		774BCCDA19B9A8660006FBC8 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774BCCD919B9A8660006FBC8 /* Accounts.framework */; };
 		774BCCDC19B9A86C0006FBC8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774BCCDB19B9A86C0006FBC8 /* Social.framework */; };
 		774BCCDE19B9A8720006FBC8 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774BCCDD19B9A8720006FBC8 /* Twitter.framework */; };
@@ -186,6 +189,11 @@
 		770F859519BB628900E9EF11 /* UIImage+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebCache.m"; sourceTree = "<group>"; };
 		770F859619BB628900E9EF11 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		770F859719BB628900E9EF11 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		7745DDA019BC5B2F00EC9D69 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		7745DDA119BC5B2F00EC9D69 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		7745DDA219BC5B2F00EC9D69 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		7745DDA319BC5B2F00EC9D69 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		7745DDA419BC5B2F00EC9D69 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		774BCCD919B9A8660006FBC8 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		774BCCDB19B9A86C0006FBC8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		774BCCDD19B9A8720006FBC8 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
@@ -396,6 +404,18 @@
 				770F859719BB628900E9EF11 /* UIImageView+WebCache.m */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		7745DD9F19BC5B2F00EC9D69 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				7745DDA019BC5B2F00EC9D69 /* MBProgressHUD.h */,
+				7745DDA119BC5B2F00EC9D69 /* MBProgressHUD.m */,
+				7745DDA219BC5B2F00EC9D69 /* SVProgressHUD.bundle */,
+				7745DDA319BC5B2F00EC9D69 /* SVProgressHUD.h */,
+				7745DDA419BC5B2F00EC9D69 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		77699D7619B1D2A1009EC88B /* CompanyScreens */ = {
@@ -656,6 +676,7 @@
 		77B8F15D19A130A1001CB660 /* SharedLibs */ = {
 			isa = PBXGroup;
 			children = (
+				7745DD9F19BC5B2F00EC9D69 /* SVProgressHUD */,
 				770F858B19BB628900E9EF11 /* SDWebImage */,
 				77B8F15E19A130A1001CB660 /* MFSideMenu */,
 			);
@@ -981,6 +1002,7 @@
 				77699D8619B1D2A1009EC88B /* separator_bubbles.png in Resources */,
 				77B8F18519A130A1001CB660 /* Icon-60@2x.png in Resources */,
 				77B8F18E19A130A1001CB660 /* Intro_bg2.png in Resources */,
+				7745DDA619BC5B2F00EC9D69 /* SVProgressHUD.bundle in Resources */,
 				77B8F19219A130A1001CB660 /* Intro_bg4.png in Resources */,
 				77B8F0F819A12E96001CB660 /* Main.storyboard in Resources */,
 				77681CDF19A482F40000F372 /* main_bg1_i5.png in Resources */,
@@ -1035,6 +1057,7 @@
 				77C6FB3F19AA144200A74996 /* ContactsCell.m in Sources */,
 				77CDA26219B37A3800B02BD4 /* ReportsCell.m in Sources */,
 				77B8F1C819A13ADF001CB660 /* ReportsViewController.m in Sources */,
+				7745DDA719BC5B2F00EC9D69 /* SVProgressHUD.m in Sources */,
 				77B8F0F519A12E96001CB660 /* AppDelegate.m in Sources */,
 				77B8F1A319A130A1001CB660 /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				77B8F1B119A139B2001CB660 /* IntroViewController.m in Sources */,
@@ -1043,6 +1066,7 @@
 				77B8F1B419A139BF001CB660 /* MainViewController.m in Sources */,
 				77B8F1A819A130F7001CB660 /* AppInfo.m in Sources */,
 				77CDA26819B3839800B02BD4 /* PDFViewController.m in Sources */,
+				7745DDA519BC5B2F00EC9D69 /* MBProgressHUD.m in Sources */,
 				77B8F1A219A130A1001CB660 /* MFSideMenuContainerViewController.m in Sources */,
 				77B8F1BB19A13A88001CB660 /* ContactsViewController.m in Sources */,
 				77B8F1AE19A139A6001CB660 /* SideMenuViewController.m in Sources */,

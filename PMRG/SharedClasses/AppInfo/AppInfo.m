@@ -78,6 +78,8 @@ static AppInfo *singletonInstance;
 
     if ([list count] > 0) {
         [facebookFeed removeAllObjects];
+        NSDateFormatter *dateFormat = [NSDateFormatter new];
+        [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
         for (int i=0; i<[list count]; i++) {
             NSMutableDictionary *data = [NSMutableDictionary dictionary];
             [data setObject:[[list objectAtIndex:i] objectForKey:@"id"] forKey:@"id"];
@@ -106,7 +108,8 @@ static AppInfo *singletonInstance;
             if ([[list objectAtIndex:i] objectForKey:@"type"]) {
                 [data setObject:[[list objectAtIndex:i] objectForKey:@"type"] forKey:@"type"];
             }
-            [data setObject:[[list objectAtIndex:i] objectForKey:@"created_time"] forKey:@"created_time"];
+            NSDate* date = [dateFormat dateFromString:[[list objectAtIndex:i] objectForKey:@"created_time"]];
+            [data setObject:date forKey:@"created_time"];
             [data setObject:@"Facebook" forKey:@"social_type"];
             [facebookFeed addObject:data];
         }
@@ -117,7 +120,15 @@ static AppInfo *singletonInstance;
     
     if ([list count] > 0) {
         [twitterFeed removeAllObjects];
-        [twitterFeed addObjectsFromArray:list];
+        NSDateFormatter *dateFormat = [NSDateFormatter new];
+        [dateFormat setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"];
+        for (int i=0; i<[list count]; i++) {
+            NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:[list objectAtIndex:i]];
+            NSDate* date = [dateFormat dateFromString:[data objectForKey:@"created_at"]];
+            [data setObject:date forKey:@"created_time"];
+            [data removeObjectForKey:@"created_at"];
+            [twitterFeed addObject:data];
+        }
     }
 }
 

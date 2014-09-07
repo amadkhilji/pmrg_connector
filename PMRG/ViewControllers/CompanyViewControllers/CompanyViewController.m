@@ -12,6 +12,9 @@
 #import "SocialCell.h"
 #import "UIImageView+WebCache.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <Accounts/Accounts.h>
+#import <Social/Social.h>
+#import "SVProgressHUD.h"
 
 @interface CompanyViewController ()
 
@@ -19,6 +22,7 @@
 -(void)getSocialNewsFeed;
 -(void)getFacebookFeed;
 -(void)getTwitterFeed;
+-(void)loadSocialFeed;
 
 @end
 
@@ -40,7 +44,8 @@
     bg_image.image = [[AppInfo sharedInfo] getCompanyBackgroundImage];
     newsList = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"News_List" ofType:@"plist"]];
     timelineList = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Timeline_List" ofType:@"plist"]];
-    socialFeed = [NSMutableArray arrayWithArray:[AppInfo sharedInfo].facebookFeed];
+    socialFeed = [NSMutableArray array];
+    [self loadSocialFeed];
     [self configureLayout];
     
     if ([[FBSession activeSession] isOpen]) {
@@ -126,9 +131,12 @@
 
 -(void)getFacebookFeed {
     
+    if (social_btn.selected && [[AppInfo sharedInfo].facebookFeed count] == 0) {
+        [SVProgressHUD showWithStatus:@"Loading facebook feed..." maskType:SVProgressHUDMaskTypeGradient];
+    }
     [social_btn setUserInteractionEnabled:NO];
     [FBRequestConnection startWithGraphPath:@"/145542828839722/posts"
-                                 parameters:[NSDictionary dictionaryWithObject:@"100" forKey:@"limit"]
+                                 parameters:[NSDictionary dictionaryWithObject:@"200" forKey:@"limit"]
                                  HTTPMethod:@"GET"
                           completionHandler:^(
                                               FBRequestConnection *connection,
@@ -137,18 +145,82 @@
                                               ) {
                               /* handle the result */
                               NSArray *list = [result objectForKey:@"data"];
-                              [[AppInfo sharedInfo] loadFacebookFeed:list];
-                              if ([[AppInfo sharedInfo].facebookFeed count] > 0) {
-                                  [socialFeed removeAllObjects];
-                                  [socialFeed addObjectsFromArray:[AppInfo sharedInfo].facebookFeed];
+                              if (list && [list count] > 0) {
+                                  [[AppInfo sharedInfo] loadFacebookFeed:list];
+                                  if ([[AppInfo sharedInfo].facebookFeed count] > 0) {
+                                      [self loadSocialFeed];
+                                  }
+                                  [social_tableView reloadData];
                               }
-                              [social_btn setUserInteractionEnabled:YES];
-                              [social_tableView reloadData];
+                              [SVProgressHUD dismiss];
+                              [self getTwitterFeed];
                           }];
 }
 
 -(void)getTwitterFeed {
     
+    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+    ACAccountType *twitterAccountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    [accountStore requestAccessToAccountsWithType:twitterAccountType options:NULL completion:^(BOOL granted, NSError *error) {
+        if (granted) {
+            if (social_btn.selected && [[AppInfo sharedInfo].twitterFeed count] == 0) {
+                [SVProgressHUD showWithStatus:@"Loading twitter feed..." maskType:SVProgressHUDMaskTypeGradient];
+            }
+            NSArray *twitterAccounts = [accountStore accountsWithAccountType:twitterAccountType];
+            NSString *urlString = @"https://api.twitter.com/1.1/statuses/user_timeline.json";
+            NSMutableDictionary *paramsDict = [NSMutableDictionary dictionary];
+            [paramsDict setObject:@"@PMRealtyGroup" forKey:@"screen_name"];
+            [paramsDict setObject:@"true" forKey:@"exclude_replies"];
+            [paramsDict setObject:@"true" forKey:@"trim_user"];
+            [paramsDict setObject:@"200" forKey:@"count"];
+            SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:[NSURL URLWithString:urlString] parameters:paramsDict];
+            [request setAccount:[twitterAccounts lastObject]];
+            [request performRequestWithHandler:
+             ^(NSData *responseData,
+               NSHTTPURLResponse *urlResponse,
+               NSError *error) {
+                 if (responseData) {
+                     if (urlResponse.statusCode >= 200 &&
+                         urlResponse.statusCode < 300) {
+                         NSError *jsonError;
+                         NSArray *list = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:&jsonError];
+                         if (list && [list count] > 0) {
+                             [[AppInfo sharedInfo] loadTwitterFeed:list];
+                             if ([[AppInfo sharedInfo].twitterFeed count] > 0) {
+                                 [self loadSocialFeed];
+                             }
+                             [social_tableView reloadData];
+                             [SVProgressHUD dismiss];
+                         }
+                     }
+                 }
+                 [SVProgressHUD dismiss];
+                 [social_btn setUserInteractionEnabled:YES];
+             }];
+        }
+        else {
+            [social_btn setUserInteractionEnabled:YES];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PMRG!" message:@"Please go to Settings.app and Login to your Twitter Account." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }];
+}
+
+-(void)loadSocialFeed {
+    
+    [socialFeed removeAllObjects];
+    [socialFeed addObjectsFromArray:[AppInfo sharedInfo].facebookFeed];
+    [socialFeed addObjectsFromArray:[AppInfo sharedInfo].twitterFeed];
+    [socialFeed sortUsingComparator:^NSComparisonResult(id obj1, id obj2){
+        NSDate *date1 = [obj1 objectForKey:@"created_time"];
+        NSDate *date2 = [obj2 objectForKey:@"created_time"];
+        if ([date1 compare:date2] == NSOrderedAscending) {
+            return NSOrderedDescending;
+        }
+        else {
+            return NSOrderedSame;
+        }
+    }];
 }
 
 #pragma mark
@@ -350,47 +422,65 @@
         if ([feed objectForKey:@"social_type"] && [[feed objectForKey:@"social_type"] isEqualToString:@"Facebook"]) {
             cell.tag_lbl.hidden = YES;
             cell.social_icon.image = [UIImage imageNamed:@"fb_icon.png"];
-        }
-        else {
-            cell.tag_lbl.hidden = NO;
-            cell.social_icon.image = [UIImage imageNamed:@"twitter_icon.png"];
-        }
-        if ([feed objectForKey:@"type"] && [[feed objectForKey:@"type"] hasPrefix:@"photo"]) {
-            NSString *image_url = [feed objectForKey:@"picture"];
-            if (image_url) {
-                cell.social_image.hidden = NO;
-                [cell.social_image setImageWithURL:[NSURL URLWithString:image_url]];
+            if ([feed objectForKey:@"type"] && [[feed objectForKey:@"type"] hasPrefix:@"photo"]) {
+                NSString *image_url = [feed objectForKey:@"picture"];
+                if (image_url) {
+                    cell.social_image.hidden = NO;
+                    [cell.social_image setImageWithURL:[NSURL URLWithString:image_url]];
+                }
+                else {
+                    cell.social_image.hidden = YES;
+                }
             }
             else {
                 cell.social_image.hidden = YES;
             }
+            if ([feed objectForKey:@"message"] && [[feed objectForKey:@"message"] length] > 0) {
+                cell.detail_TV.text = [feed objectForKey:@"message"];
+            }
+            else if ([feed objectForKey:@"description"] && [[feed objectForKey:@"description"] length] > 0) {
+                cell.detail_TV.text = [feed objectForKey:@"description"];
+            }
+            else if ([feed objectForKey:@"caption"] && [[feed objectForKey:@"caption"] length] > 0) {
+                cell.detail_TV.text = [feed objectForKey:@"caption"];
+            }
+            else {
+                cell.detail_TV.text = @"PM Realty Group";
+            }
+            CGRect frame = cell.detail_TV.frame;
+            frame.size.height = (cell.link_btn.frame.origin.y-frame.origin.y)-4.0;
+            cell.detail_TV.frame = frame;
+            if ([feed objectForKey:@"link"] && [[feed objectForKey:@"link"] length] > 0) {
+                [cell.link_btn setTitle:[feed objectForKey:@"link"] forState:UIControlStateNormal];
+                cell.link_btn.hidden = NO;
+            }
+            else if ([feed objectForKey:@"caption"] && [[feed objectForKey:@"caption"] length] > 0) {
+                [cell.link_btn setTitle:[feed objectForKey:@"caption"] forState:UIControlStateNormal];
+                cell.link_btn.hidden = NO;
+            }
+            else {
+                cell.link_btn.hidden = YES;
+                frame = cell.detail_TV.frame;
+                frame.size.height = (cell.link_btn.frame.origin.y-frame.origin.y)+cell.link_btn.frame.size.height;
+                cell.detail_TV.frame = frame;
+            }
         }
         else {
+            cell.tag_lbl.hidden = NO;
             cell.social_image.hidden = YES;
-        }
-        if ([feed objectForKey:@"message"] && [[feed objectForKey:@"message"] length] > 0) {
-            cell.detail_TV.text = [feed objectForKey:@"message"];
-        }
-        else if ([feed objectForKey:@"description"] && [[feed objectForKey:@"description"] length] > 0) {
-            cell.detail_TV.text = [feed objectForKey:@"description"];
-        }
-        else if ([feed objectForKey:@"caption"] && [[feed objectForKey:@"caption"] length] > 0) {
-            cell.detail_TV.text = [feed objectForKey:@"caption"];
-        }
-        else {
-            cell.detail_TV.text = @"PM Realty Group";
-        }
-        if ([feed objectForKey:@"link"] && [[feed objectForKey:@"link"] length] > 0) {
-            [cell.link_btn setTitle:[feed objectForKey:@"link"] forState:UIControlStateNormal];
-            cell.link_btn.hidden = NO;
-        }
-        else if ([feed objectForKey:@"caption"] && [[feed objectForKey:@"caption"] length] > 0) {
-            [cell.link_btn setTitle:[feed objectForKey:@"caption"] forState:UIControlStateNormal];
-            cell.link_btn.hidden = NO;
-        }
-        else {
             cell.link_btn.hidden = YES;
+            cell.social_icon.image = [UIImage imageNamed:@"twitter_icon.png"];
+            if ([feed objectForKey:@"text"] && [[feed objectForKey:@"text"] length] > 0) {
+                cell.detail_TV.text = [feed objectForKey:@"text"];
+            }
+            else {
+                cell.detail_TV.text = @"PM Realty Group";
+            }
+            CGRect frame = cell.detail_TV.frame;
+            frame.size.height = (cell.link_btn.frame.origin.y-frame.origin.y)+cell.link_btn.frame.size.height;
+            cell.detail_TV.frame = frame;
         }
+        
         return cell;
     }
     
