@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
@@ -901,10 +901,80 @@ Portfolio valued in excess of $35 billion</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ihL-RP-DbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Beacon View Controller-->
+        <scene sceneID="uM1-Kc-2iP">
+            <objects>
+                <viewController storyboardIdentifier="BeaconViewController" id="hLE-tr-3fs" customClass="BeaconViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cqH-aW-NLF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="mMo-T8-ddr">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_bar.png" id="WAt-GF-r0g">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lenox_building_title.png" id="wF8-Z8-vTb">
+                                        <rect key="frame" x="90" y="13" width="140" height="11"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eQU-ww-6QL">
+                                        <rect key="frame" x="10" y="11" width="33" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="back_app_btn.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backAction:" destination="hLE-tr-3fs" eventType="touchUpInside" id="iDy-fn-bC4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" id="mdh-yZ-88t">
+                                <rect key="frame" x="0.0" y="38" width="320" height="530"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ibeacon_screen_1.png" id="yl9-MU-Ffw">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="8jf-iG-K3c">
+                                        <rect key="frame" x="224" y="522" width="82" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="infoAction:" destination="hLE-tr-3fs" eventType="touchUpInside" id="Cpy-ik-XWO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="bg_image" destination="yl9-MU-Ffw" id="L1m-1O-mrx"/>
+                        <outlet property="info_button" destination="8jf-iG-K3c" id="H5e-uv-Rgw"/>
+                        <outlet property="scrollView" destination="mdh-yZ-88t" id="D02-3Z-0bx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qzl-KV-QTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="about_mission_statement.png" width="585" height="92"/>
         <image name="about_us_cover_photo.png" width="263" height="432"/>
+        <image name="back_app_btn.png" width="67" height="30"/>
         <image name="central_btn.png" width="163" height="82"/>
         <image name="central_btn_selected.png" width="163" height="82"/>
         <image name="company_btn.png" width="132" height="145"/>
@@ -915,6 +985,8 @@ Portfolio valued in excess of $35 billion</string>
         <image name="dots_top.png" width="28" height="117"/>
         <image name="drag_text.png" width="132" height="22"/>
         <image name="home_icon.png" width="77" height="62"/>
+        <image name="ibeacon_screen_1.png" width="640" height="1136"/>
+        <image name="lenox_building_title.png" width="281" height="23"/>
         <image name="menu_icon.png" width="58" height="46"/>
         <image name="northeast_btn.png" width="149" height="82"/>
         <image name="northeast_btn_selected.png" width="149" height="82"/>
@@ -926,6 +998,7 @@ Portfolio valued in excess of $35 billion</string>
         <image name="southeast_btn.png" width="168" height="82"/>
         <image name="southeast_btn_selected.png" width="168" height="82"/>
         <image name="tab_bar.png" width="640" height="84"/>
+        <image name="top_bar.png" width="640" height="77"/>
         <image name="top_bar_logo.png" width="640" height="82"/>
         <image name="top_menu_btn.png" width="183" height="82"/>
         <image name="top_menu_btn_selected.png" width="183" height="82"/>

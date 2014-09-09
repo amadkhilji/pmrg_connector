@@ -15,5 +15,6 @@
     #import <Foundation/Foundation.h>
     #import "AppConstants.h"
     #import "AppInfo.h"
+    #import "BeaconManager.h"
     #import "MFSideMenu.h"
 #endif

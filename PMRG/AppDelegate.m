@@ -14,6 +14,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[BeaconManager sharedManager] startMonitoringBeacons];
+    
+    if ([launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey]) {
+        UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:notification.userInfo forKey:k_Should_Display_Beacon];
+        [defaults synchronize];
+    }
+    
     return YES;
 }
 							
@@ -53,6 +62,11 @@
          annotation:(id)annotation {
     
     return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    
+    [[BeaconManager sharedManager] openBeaconScreenWithTag:[[notification.userInfo objectForKey:@"tag"] intValue]];
 }
 
 @end

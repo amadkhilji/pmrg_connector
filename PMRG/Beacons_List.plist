@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>tag</key>
+		<string>1</string>
+		<key>title</key>
+		<string>Welcome to the Peachtree Lenox Building. Find out more about our office space availabilities.</string>
+		<key>UUID</key>
+		<string>B9407F30-F5F8-466E-AFF9-25556B57FE6D</string>
+		<key>major</key>
+		<string>47843</string>
+		<key>minor</key>
+		<string>7207</string>
+	</dict>
+	<dict>
+		<key>tag</key>
+		<string>2</string>
+		<key>title</key>
+		<string>Welcome to suite 720. Find out more about this space.</string>
+		<key>UUID</key>
+		<string>B9407F30-F5F8-466E-AFF9-25556B57FE6D</string>
+		<key>major</key>
+		<string>5112</string>
+		<key>minor</key>
+		<string>57242</string>
+	</dict>
+	<dict>
+		<key>tag</key>
+		<string>3</string>
+		<key>title</key>
+		<string>Looking for something? Open our virtual directory for help.</string>
+		<key>UUID</key>
+		<string>B9407F30-F5F8-466E-AFF9-25556B57FE6D</string>
+		<key>major</key>
+		<string>2874</string>
+		<key>minor</key>
+		<string>25592</string>
+	</dict>
+</array>
+</plist>

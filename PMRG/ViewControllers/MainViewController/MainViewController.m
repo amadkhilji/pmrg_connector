@@ -43,6 +43,14 @@
         frame.origin.y -= 10.0;
         bottom_dots_image.frame = frame;
     }
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:k_Should_Display_Beacon]) {
+        NSDictionary *beacon = [defaults objectForKey:k_Should_Display_Beacon];
+        [[BeaconManager sharedManager] openBeaconScreenWithTag:[[beacon objectForKey:@"tag"] intValue]];
+        [defaults removeObjectForKey:k_Should_Display_Beacon];
+        [defaults synchronize];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -87,6 +95,7 @@
 
 -(IBAction)settingsAction:(id)sender {
     
+//    [[BeaconManager sharedManager] openBeaconScreenWithTag:k_Beacon1_TAG];
 }
 
 -(IBAction)companyAction:(id)sender {

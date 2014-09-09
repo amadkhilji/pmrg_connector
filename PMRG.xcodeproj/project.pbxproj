@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7706538819BEF077001E1BE9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7706538719BEF077001E1BE9 /* CoreLocation.framework */; };
+		7706538C19BEF0CE001E1BE9 /* BeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7706538B19BEF0CE001E1BE9 /* BeaconManager.m */; };
+		7706538E19BEF147001E1BE9 /* Beacons_List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7706538D19BEF147001E1BE9 /* Beacons_List.plist */; };
+		7706539219BF3367001E1BE9 /* BeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7706539119BF3367001E1BE9 /* BeaconViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7706539719BF3574001E1BE9 /* ibeacon_screen_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7706539419BF3574001E1BE9 /* ibeacon_screen_1.png */; };
+		7706539819BF3574001E1BE9 /* ibeacon_screen_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7706539519BF3574001E1BE9 /* ibeacon_screen_2.png */; };
+		7706539919BF3574001E1BE9 /* ibeacon_screen_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7706539619BF3574001E1BE9 /* ibeacon_screen_3.png */; };
+		7706539D19BF38C7001E1BE9 /* back_app_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 7706539A19BF38C7001E1BE9 /* back_app_btn.png */; };
+		7706539E19BF38C7001E1BE9 /* lenox_building_title.png in Resources */ = {isa = PBXBuildFile; fileRef = 7706539B19BF38C7001E1BE9 /* lenox_building_title.png */; };
+		7706539F19BF38C7001E1BE9 /* top_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7706539C19BF38C7001E1BE9 /* top_bar.png */; };
+		770653A419BF4269001E1BE9 /* UIView+AlertAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 770653A319BF4269001E1BE9 /* UIView+AlertAnimations.m */; };
 		770F858519BB54C200E9EF11 /* SocialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770F858319BB54C200E9EF11 /* SocialCell.m */; };
 		770F858619BB54C200E9EF11 /* SocialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 770F858419BB54C200E9EF11 /* SocialCell.xib */; };
 		770F858919BB597000E9EF11 /* fb_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 770F858719BB597000E9EF11 /* fb_icon.png */; };
@@ -172,6 +183,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7706538719BEF077001E1BE9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7706538A19BEF0CE001E1BE9 /* BeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconManager.h; sourceTree = "<group>"; };
+		7706538B19BEF0CE001E1BE9 /* BeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconManager.m; sourceTree = "<group>"; };
+		7706538D19BEF147001E1BE9 /* Beacons_List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Beacons_List.plist; sourceTree = "<group>"; };
+		7706539019BF3367001E1BE9 /* BeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconViewController.h; sourceTree = "<group>"; };
+		7706539119BF3367001E1BE9 /* BeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconViewController.m; sourceTree = "<group>"; };
+		7706539419BF3574001E1BE9 /* ibeacon_screen_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ibeacon_screen_1.png; sourceTree = "<group>"; };
+		7706539519BF3574001E1BE9 /* ibeacon_screen_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ibeacon_screen_2.png; sourceTree = "<group>"; };
+		7706539619BF3574001E1BE9 /* ibeacon_screen_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ibeacon_screen_3.png; sourceTree = "<group>"; };
+		7706539A19BF38C7001E1BE9 /* back_app_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_app_btn.png; sourceTree = "<group>"; };
+		7706539B19BF38C7001E1BE9 /* lenox_building_title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lenox_building_title.png; sourceTree = "<group>"; };
+		7706539C19BF38C7001E1BE9 /* top_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top_bar.png; sourceTree = "<group>"; };
+		770653A119BF4269001E1BE9 /* CustomAlertViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertViewDelegate.h; sourceTree = "<group>"; };
+		770653A219BF4269001E1BE9 /* UIView+AlertAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AlertAnimations.h"; sourceTree = "<group>"; };
+		770653A319BF4269001E1BE9 /* UIView+AlertAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AlertAnimations.m"; sourceTree = "<group>"; };
 		770F858219BB54C200E9EF11 /* SocialCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialCell.h; sourceTree = "<group>"; };
 		770F858319BB54C200E9EF11 /* SocialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialCell.m; sourceTree = "<group>"; };
 		770F858419BB54C200E9EF11 /* SocialCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialCell.xib; sourceTree = "<group>"; };
@@ -363,6 +389,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7706538819BEF077001E1BE9 /* CoreLocation.framework in Frameworks */,
 				774BCCDE19B9A8720006FBC8 /* Twitter.framework in Frameworks */,
 				774BCCDC19B9A86C0006FBC8 /* Social.framework in Frameworks */,
 				774BCCDA19B9A8660006FBC8 /* Accounts.framework in Frameworks */,
@@ -387,6 +414,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7706538919BEF0B4001E1BE9 /* BeaconManager */ = {
+			isa = PBXGroup;
+			children = (
+				7706538A19BEF0CE001E1BE9 /* BeaconManager.h */,
+				7706538B19BEF0CE001E1BE9 /* BeaconManager.m */,
+			);
+			path = BeaconManager;
+			sourceTree = "<group>";
+		};
+		7706538F19BF3340001E1BE9 /* BeaconViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7706539019BF3367001E1BE9 /* BeaconViewController.h */,
+				7706539119BF3367001E1BE9 /* BeaconViewController.m */,
+			);
+			path = BeaconViewController;
+			sourceTree = "<group>";
+		};
+		7706539319BF3574001E1BE9 /* iBeaconScreens */ = {
+			isa = PBXGroup;
+			children = (
+				7706539A19BF38C7001E1BE9 /* back_app_btn.png */,
+				7706539B19BF38C7001E1BE9 /* lenox_building_title.png */,
+				7706539C19BF38C7001E1BE9 /* top_bar.png */,
+				7706539419BF3574001E1BE9 /* ibeacon_screen_1.png */,
+				7706539519BF3574001E1BE9 /* ibeacon_screen_2.png */,
+				7706539619BF3574001E1BE9 /* ibeacon_screen_3.png */,
+			);
+			path = iBeaconScreens;
+			sourceTree = "<group>";
+		};
+		770653A019BF4269001E1BE9 /* CustomAlertAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				770653A119BF4269001E1BE9 /* CustomAlertViewDelegate.h */,
+				770653A219BF4269001E1BE9 /* UIView+AlertAnimations.h */,
+				770653A319BF4269001E1BE9 /* UIView+AlertAnimations.m */,
+			);
+			path = CustomAlertAnimation;
+			sourceTree = "<group>";
+		};
 		770F858B19BB628900E9EF11 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,6 +526,7 @@
 		77B8F0E319A12E96001CB660 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7706538719BEF077001E1BE9 /* CoreLocation.framework */,
 				774BCCDF19B9A8A20006FBC8 /* FacebookSDK.framework */,
 				774BCCDD19B9A8720006FBC8 /* Twitter.framework */,
 				774BCCDB19B9A86C0006FBC8 /* Social.framework */,
@@ -498,6 +567,7 @@
 				77699D8919B25912009EC88B /* News_List.plist */,
 				774DCE5F19B31AD20093B47A /* Timeline_List.plist */,
 				77CDA25919B36C5B00B02BD4 /* Reports_List.plist */,
+				7706538D19BEF147001E1BE9 /* Beacons_List.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -538,6 +608,7 @@
 				77B8F14B19A130A1001CB660 /* MainScreens */,
 				77699D7619B1D2A1009EC88B /* CompanyScreens */,
 				77CDA23519B36AAB00B02BD4 /* ReportsScreens */,
+				7706539319BF3574001E1BE9 /* iBeaconScreens */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -660,6 +731,8 @@
 			children = (
 				77B8F1A519A130E1001CB660 /* AppConstants.h */,
 				77B8F15C19A130A1001CB660 /* AppInfo */,
+				7706538919BEF0B4001E1BE9 /* BeaconManager */,
+				770653A019BF4269001E1BE9 /* CustomAlertAnimation */,
 			);
 			path = SharedClasses;
 			sourceTree = "<group>";
@@ -707,6 +780,7 @@
 				77B8F1B719A13A62001CB660 /* PropertiesViewControllers */,
 				77B8F1C519A13ADF001CB660 /* ReportsViewControllers */,
 				77CDA26419B3837E00B02BD4 /* PDFViewController */,
+				7706538F19BF3340001E1BE9 /* BeaconViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -923,6 +997,7 @@
 				77C6FB3919AA140B00A74996 /* Sinclair_Brad.png in Resources */,
 				77B8F17019A130A1001CB660 /* northeast_btn_selected.png in Resources */,
 				77B8F18219A130A1001CB660 /* Icon-50@2x.png in Resources */,
+				7706538E19BEF147001E1BE9 /* Beacons_List.plist in Resources */,
 				77B8F18F19A130A1001CB660 /* Intro_bg2_i5.png in Resources */,
 				77B8F17A19A130A1001CB660 /* top_bar_logo.png in Resources */,
 				77699D8519B1D2A1009EC88B /* grey_circle.png in Resources */,
@@ -931,6 +1006,7 @@
 				77681CE019A482F40000F372 /* main_bg1.png in Resources */,
 				77B8F18919A130A1001CB660 /* Icon-76@2x.png in Resources */,
 				77B8F19019A130A1001CB660 /* Intro_bg3.png in Resources */,
+				7706539D19BF38C7001E1BE9 /* back_app_btn.png in Resources */,
 				77CDA23F19B36AAB00B02BD4 /* atlanta_office_image.png in Resources */,
 				77B8F19B19A130A1001CB660 /* home_icon.png in Resources */,
 				77B8F19319A130A1001CB660 /* Intro_bg4_i5.png in Resources */,
@@ -943,7 +1019,9 @@
 				770F858619BB54C200E9EF11 /* SocialCell.xib in Resources */,
 				77B8F19619A130A1001CB660 /* dots_bottom.png in Resources */,
 				77B8F16B19A130A1001CB660 /* contacts_cell_bg.png in Resources */,
+				7706539919BF3574001E1BE9 /* ibeacon_screen_3.png in Resources */,
 				77C6FB3A19AA140B00A74996 /* Spafford_John.png in Resources */,
+				7706539E19BF38C7001E1BE9 /* lenox_building_title.png in Resources */,
 				77C6FB3819AA140B00A74996 /* Proehl_Jim.png in Resources */,
 				77CDA25819B36B8900B02BD4 /* Q2_2014_SD.pdf in Resources */,
 				77B8F18719A130A1001CB660 /* Icon-72@2x.png in Resources */,
@@ -1006,6 +1084,7 @@
 				77B8F19219A130A1001CB660 /* Intro_bg4.png in Resources */,
 				77B8F0F819A12E96001CB660 /* Main.storyboard in Resources */,
 				77681CDF19A482F40000F372 /* main_bg1_i5.png in Resources */,
+				7706539F19BF38C7001E1BE9 /* top_bar.png in Resources */,
 				77B8F18019A130A1001CB660 /* Icon-40@2x.png in Resources */,
 				77B8F18119A130A1001CB660 /* Icon-50.png in Resources */,
 				77B8F19419A130A1001CB660 /* company_btn.png in Resources */,
@@ -1016,6 +1095,7 @@
 				77B8F19D19A130A1001CB660 /* pm_logo_main.png in Resources */,
 				77CDA25D19B3743800B02BD4 /* dallas_image.png in Resources */,
 				77CDA25619B36B8900B02BD4 /* Q2_2014_OC.pdf in Resources */,
+				7706539719BF3574001E1BE9 /* ibeacon_screen_1.png in Resources */,
 				77B8F19719A130A1001CB660 /* dots_left.png in Resources */,
 				77B8F1A119A130A1001CB660 /* tab_bar.png in Resources */,
 				77C6FB4019AA144200A74996 /* ContactsCell.xib in Resources */,
@@ -1027,6 +1107,7 @@
 				77699D8219B1D2A1009EC88B /* blue_circle.png in Resources */,
 				77CDA25019B36B8900B02BD4 /* Q2_2014_Atlanta_IND.pdf in Resources */,
 				77699D8A19B25912009EC88B /* News_List.plist in Resources */,
+				7706539819BF3574001E1BE9 /* ibeacon_screen_2.png in Resources */,
 				77699D8019B1D2A1009EC88B /* about_mission_statement.png in Resources */,
 				77C11ABA19A38943007F674B /* properties_icon.png in Resources */,
 				77CDA24119B36AAB00B02BD4 /* inland_empire_image.png in Resources */,
@@ -1051,6 +1132,7 @@
 				774DCE6419B31F650093B47A /* TimelineCell.m in Sources */,
 				770F859A19BB628900E9EF11 /* SDWebImageManager.m in Sources */,
 				770F859C19BB628900E9EF11 /* UIImageView+WebCache.m in Sources */,
+				7706538C19BEF0CE001E1BE9 /* BeaconManager.m in Sources */,
 				77B8F1BE19A13A98001CB660 /* CompanyViewController.m in Sources */,
 				770F858519BB54C200E9EF11 /* SocialCell.m in Sources */,
 				77B8F1A419A130A1001CB660 /* SplashViewController.m in Sources */,
@@ -1059,6 +1141,7 @@
 				77B8F1C819A13ADF001CB660 /* ReportsViewController.m in Sources */,
 				7745DDA719BC5B2F00EC9D69 /* SVProgressHUD.m in Sources */,
 				77B8F0F519A12E96001CB660 /* AppDelegate.m in Sources */,
+				7706539219BF3367001E1BE9 /* BeaconViewController.m in Sources */,
 				77B8F1A319A130A1001CB660 /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				77B8F1B119A139B2001CB660 /* IntroViewController.m in Sources */,
 				77B8F1C119A13AA7001CB660 /* PropertiesViewController.m in Sources */,
@@ -1070,6 +1153,7 @@
 				77B8F1A219A130A1001CB660 /* MFSideMenuContainerViewController.m in Sources */,
 				77B8F1BB19A13A88001CB660 /* ContactsViewController.m in Sources */,
 				77B8F1AE19A139A6001CB660 /* SideMenuViewController.m in Sources */,
+				770653A419BF4269001E1BE9 /* UIView+AlertAnimations.m in Sources */,
 				77B8F0F119A12E96001CB660 /* main.m in Sources */,
 				770F859919BB628900E9EF11 /* SDWebImageDownloader.m in Sources */,
 				770F859819BB628900E9EF11 /* SDImageCache.m in Sources */,
@@ -1155,7 +1239,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -1187,7 +1271,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1207,7 +1291,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PMRG/PMRG-Prefix.pch";
 				INFOPLIST_FILE = "PMRG/PMRG-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "53157da0-9e67-492d-96e5-fbcf2b921942";
 				WRAPPER_EXTENSION = app;
@@ -1227,7 +1311,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PMRG/PMRG-Prefix.pch";
 				INFOPLIST_FILE = "PMRG/PMRG-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
