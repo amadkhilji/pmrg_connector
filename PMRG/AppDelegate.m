@@ -14,7 +14,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [[BeaconManager sharedManager] startMonitoringBeacons];
+    [[BeaconManager sharedManager] startMonitoringRegions];
     
     if ([launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey]) {
         UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];

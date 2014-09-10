@@ -13,6 +13,8 @@
 		<string>47843</string>
 		<key>minor</key>
 		<string>7207</string>
+		<key>identifier</key>
+		<string>B9407F30-F5F8-466E-AFF9-25556B57FE6D-47843-7207</string>
 	</dict>
 	<dict>
 		<key>tag</key>
@@ -25,6 +27,8 @@
 		<string>5112</string>
 		<key>minor</key>
 		<string>57242</string>
+		<key>identifier</key>
+		<string>B9407F30-F5F8-466E-AFF9-25556B57FE6D-5112-57242</string>
 	</dict>
 	<dict>
 		<key>tag</key>
@@ -37,6 +41,8 @@
 		<string>2874</string>
 		<key>minor</key>
 		<string>25592</string>
+		<key>identifier</key>
+		<string>B9407F30-F5F8-466E-AFF9-25556B57FE6D-2874-25592</string>
 	</dict>
 </array>
 </plist>

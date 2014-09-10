@@ -550,8 +550,8 @@
 				77B8F15B19A130A1001CB660 /* SharedClasses */,
 				77B8F15D19A130A1001CB660 /* SharedLibs */,
 				77B8F11A19A130A0001CB660 /* Resources */,
-				77B8F0FC19A12E96001CB660 /* Images.xcassets */,
 				77B8F0EB19A12E96001CB660 /* Supporting Files */,
+				77B8F0FC19A12E96001CB660 /* Images.xcassets */,
 			);
 			path = PMRG;
 			sourceTree = "<group>";

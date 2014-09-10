@@ -10,16 +10,18 @@
 
 @import CoreLocation;
 
-@interface BeaconManager : NSObject <CLLocationManagerDelegate> {
+@interface BeaconManager : NSObject <UIAlertViewDelegate, CLLocationManagerDelegate> {
     
-    NSMutableArray  *beaconsList;
+    NSMutableArray  *beaconsList, *beaconsInRange;
     CLLocationManager   *locationManager;
+    
+    UIAlertView     *beaconAlertView;
 }
 
 +(instancetype)sharedManager;
 
--(void)startMonitoringBeacons;
--(void)stopMonitoringBeacons;
+-(void)startMonitoringRegions;
+-(void)stopMonitoringRegions;
 -(void)openBeaconScreenWithTag:(int)beaconTag;
 
 @end
