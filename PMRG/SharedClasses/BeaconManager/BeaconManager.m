@@ -188,7 +188,7 @@ static BeaconManager *singletonInstance;
             if ([[item objectForKey:@"identifier"] isEqualToString:region.identifier]) {
                 CLBeaconRegion *beaconRegion = [self beaconRegionWithItem:item];
                 [locationManager stopRangingBeaconsInRegion:beaconRegion];
-                [beaconsInRange removeObjectIdenticalTo:item];
+                [beaconsInRange removeObject:item];
             }
         }
     }
@@ -210,7 +210,7 @@ static BeaconManager *singletonInstance;
         if ([[item objectForKey:@"identifier"] isEqualToString:region.identifier]) {
             CLBeaconRegion *beaconRegion = [self beaconRegionWithItem:item];
             [locationManager stopRangingBeaconsInRegion:beaconRegion];
-            [beaconsInRange removeObjectIdenticalTo:item];
+            [beaconsInRange removeObject:item];
         }
     }
 }
