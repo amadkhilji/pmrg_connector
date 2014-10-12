@@ -39,6 +39,8 @@
 		774DCE6019B31AD20093B47A /* Timeline_List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 774DCE5F19B31AD20093B47A /* Timeline_List.plist */; };
 		774DCE6419B31F650093B47A /* TimelineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 774DCE6219B31F650093B47A /* TimelineCell.m */; };
 		774DCE6519B31F650093B47A /* TimelineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 774DCE6319B31F650093B47A /* TimelineCell.xib */; };
+		77643A7319EAB10B00193801 /* HTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 77643A7219EAB10B00193801 /* HTTPRequest.m */; };
+		77643A7519EAF42300193801 /* default_user_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 77643A7419EAF42300193801 /* default_user_pic.png */; };
 		77681CDF19A482F40000F372 /* main_bg1_i5.png in Resources */ = {isa = PBXBuildFile; fileRef = 77681CD719A482F40000F372 /* main_bg1_i5.png */; };
 		77681CE019A482F40000F372 /* main_bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 77681CD819A482F40000F372 /* main_bg1.png */; };
 		77681CE119A482F40000F372 /* main_bg2_i5.png in Resources */ = {isa = PBXBuildFile; fileRef = 77681CD919A482F40000F372 /* main_bg2_i5.png */; };
@@ -231,6 +233,9 @@
 		774DCE6119B31F650093B47A /* TimelineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineCell.h; sourceTree = "<group>"; };
 		774DCE6219B31F650093B47A /* TimelineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineCell.m; sourceTree = "<group>"; };
 		774DCE6319B31F650093B47A /* TimelineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimelineCell.xib; sourceTree = "<group>"; };
+		77643A7119EAB10B00193801 /* HTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRequest.h; sourceTree = "<group>"; };
+		77643A7219EAB10B00193801 /* HTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPRequest.m; sourceTree = "<group>"; };
+		77643A7419EAF42300193801 /* default_user_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_user_pic.png; sourceTree = "<group>"; };
 		77681CD719A482F40000F372 /* main_bg1_i5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_bg1_i5.png; sourceTree = "<group>"; };
 		77681CD819A482F40000F372 /* main_bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_bg1.png; sourceTree = "<group>"; };
 		77681CD919A482F40000F372 /* main_bg2_i5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_bg2_i5.png; sourceTree = "<group>"; };
@@ -486,6 +491,15 @@
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
+		77643A7019EAB10B00193801 /* HTTPRequest */ = {
+			isa = PBXGroup;
+			children = (
+				77643A7119EAB10B00193801 /* HTTPRequest.h */,
+				77643A7219EAB10B00193801 /* HTTPRequest.m */,
+			);
+			path = HTTPRequest;
+			sourceTree = "<group>";
+		};
 		77699D7619B1D2A1009EC88B /* CompanyScreens */ = {
 			isa = PBXGroup;
 			children = (
@@ -630,6 +644,7 @@
 				77B8F12F19A130A0001CB660 /* top_bar_logo.png */,
 				77B8F13019A130A0001CB660 /* western_btn.png */,
 				77B8F13119A130A0001CB660 /* western_btn_selected.png */,
+				77643A7419EAF42300193801 /* default_user_pic.png */,
 				77B8F12519A130A0001CB660 /* People */,
 			);
 			path = ContactsScreen;
@@ -733,6 +748,7 @@
 				77B8F15C19A130A1001CB660 /* AppInfo */,
 				7706538919BEF0B4001E1BE9 /* BeaconManager */,
 				770653A019BF4269001E1BE9 /* CustomAlertAnimation */,
+				77643A7019EAB10B00193801 /* HTTPRequest */,
 			);
 			path = SharedClasses;
 			sourceTree = "<group>";
@@ -1066,6 +1082,7 @@
 				77B8F0EF19A12E96001CB660 /* InfoPlist.strings in Resources */,
 				77681CE619A482F40000F372 /* main_bg4.png in Resources */,
 				774DCE6019B31AD20093B47A /* Timeline_List.plist in Resources */,
+				77643A7519EAF42300193801 /* default_user_pic.png in Resources */,
 				77B8F16E19A130A1001CB660 /* nav_bar.png in Resources */,
 				77B8F19819A130A1001CB660 /* dots_right.png in Resources */,
 				77B8F18C19A130A1001CB660 /* Intro_bg1.png in Resources */,
@@ -1142,6 +1159,7 @@
 				7745DDA719BC5B2F00EC9D69 /* SVProgressHUD.m in Sources */,
 				77B8F0F519A12E96001CB660 /* AppDelegate.m in Sources */,
 				7706539219BF3367001E1BE9 /* BeaconViewController.m in Sources */,
+				77643A7319EAB10B00193801 /* HTTPRequest.m in Sources */,
 				77B8F1A319A130A1001CB660 /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				77B8F1B119A139B2001CB660 /* IntroViewController.m in Sources */,
 				77B8F1C119A13AA7001CB660 /* PropertiesViewController.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CompanyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface CompanyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, HTTPRequestDelegate> {
     
     IBOutlet UIView         *about_us_view, *top_bar, *bottom_bar, *newsHeaderView;
     IBOutlet UIImageView    *bg_image;

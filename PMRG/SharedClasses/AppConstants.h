@@ -15,5 +15,13 @@
 #define k_Beacon1_TAG               1
 #define k_Beacon2_TAG               2
 #define k_Beacon3_TAG               3
+#define TIMEOUT_INTERVAL            30.0
+
+#define SERVER_URL                  @"http://pmrgapp.com/apis/index.php"
+#define SERVER_USERNAME             @"techleadz"
+#define SERVER_PASSWORD             @"techleadz.test"
+#define GET_ALL_BEACONS             @"getAllIBeacons"
+#define GET_ALL_CONTACTS            @"getAllContacts"
+#define GET_ALL_NEWS_FEEDS          @"getAllFeeds"
 
 #endif

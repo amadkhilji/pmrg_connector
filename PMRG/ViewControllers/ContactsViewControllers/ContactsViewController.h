@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContactsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface ContactsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, HTTPRequestDelegate> {
     
     IBOutlet UITableView    *contactsTableView;
     IBOutlet UIImageView    *bg_image;
@@ -16,7 +16,7 @@
     IBOutlet UIButton       *western_btn, *central_btn, *southeast_btn, *northeast_btn;
     
     NSMutableArray          *contactsList;
-    NSDictionary            *contactsData;
+    NSMutableDictionary     *contactsData;
 }
 
 -(IBAction)menuAction:(id)sender;

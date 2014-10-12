@@ -23,6 +23,8 @@
 -(void)getFacebookFeed;
 -(void)getTwitterFeed;
 -(void)loadSocialFeed;
+-(void)loadNewsFeed;
+-(void)requestToGetNewsFeed;
 
 @end
 
@@ -42,12 +44,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     bg_image.image = [[AppInfo sharedInfo] getCompanyBackgroundImage];
-    newsList = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"News_List" ofType:@"plist"]];
     timelineList = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Timeline_List" ofType:@"plist"]];
+    newsList = [NSMutableArray array];
     socialFeed = [NSMutableArray array];
+    [self loadNewsFeed];
     [self loadSocialFeed];
     [self configureLayout];
     
+    [self requestToGetNewsFeed];
     if ([[FBSession activeSession] isOpen]) {
         [self getFacebookFeed];
     }
@@ -223,6 +227,20 @@
     }];
 }
 
+-(void)loadNewsFeed {
+    
+    [newsList removeAllObjects];
+    [newsList addObjectsFromArray:[AppInfo sharedInfo].newsFeed];
+}
+
+-(void)requestToGetNewsFeed {
+    
+    if ([newsList count] == 0 && news_btn.selected) {
+        [SVProgressHUD showWithStatus:@"Loading news..." maskType:SVProgressHUDMaskTypeGradient];
+    }
+    [HTTPRequest requestGetWithMethod:nil Params:[NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:GET_ALL_NEWS_FEEDS, SERVER_USERNAME, SERVER_PASSWORD, nil] forKeys:[NSArray arrayWithObjects:@"method", @"userName", @"password", nil]] andDelegate:self];
+}
+
 #pragma mark
 #pragma mark IBAction Methods
 
@@ -281,6 +299,10 @@
     news_tableView.hidden = NO;
     
     [news_tableView reloadData];
+    
+    if ([newsList count] == 0) {
+        [self requestToGetNewsFeed];
+    }
 }
 
 -(IBAction)socialAction:(id)sender {
@@ -366,7 +388,7 @@
         
         NSDictionary *news = [newsList objectAtIndex:indexPath.row];
         cell.date_lbl.text = [news objectForKey:@"date"];
-        cell.news_lbl.text = [news objectForKey:@"news"];
+        cell.news_lbl.text = [news objectForKey:@"title"];
 
         CGFloat height = [cell.news_lbl.text sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:10.0] constrainedToSize:CGSizeMake(200, 100)].height;
         if (height < 25.0) {
@@ -389,8 +411,8 @@
         }
         
         NSDictionary *timeline = [timelineList objectAtIndex:indexPath.row];
-        cell.title.text = [timeline objectForKey:@"title"];
-        cell.description.text = [timeline objectForKey:@"description"];
+        cell.title_lbl.text = [timeline objectForKey:@"title"];
+        cell.description_lbl.text = [timeline objectForKey:@"description"];
         if (indexPath.row == 0) {
             cell.dots_separator.hidden = YES;
         }
@@ -398,7 +420,7 @@
             cell.dots_separator.hidden = NO;
         }
         
-        CGFloat height = [cell.description.text sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:10.0] constrainedToSize:CGSizeMake(270, 200)].height;
+        CGFloat height = [cell.description_lbl.text sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:10.0] constrainedToSize:CGSizeMake(270, 200)].height;
         if (height < 50.0) {
             height = 50.0;
         }
@@ -485,6 +507,24 @@
     }
     
     return nil;//cell;
+}
+
+#pragma mark
+#pragma mark HTTPRequestDelegate Methods
+
+-(void)didFinishRequest:(HTTPRequest*)httpRequest withData:(id)data {
+    
+    if (data && [data isKindOfClass:[NSDictionary class]] && [data objectForKey:@"message"] && (NSNull*)[data objectForKey:@"message"] != [NSNull null] && [[data objectForKey:@"message"] caseInsensitiveCompare:@"success"] == NSOrderedSame && [data objectForKey:@"feeds"] && [[data objectForKey:@"feeds"] isKindOfClass:[NSArray class]]) {
+        [[AppInfo sharedInfo] loadNewsList:[data objectForKey:@"feeds"]];
+        [self loadNewsFeed];
+        [news_tableView reloadData];
+    }
+    [SVProgressHUD dismiss];
+}
+
+-(void)didFailRequest:(HTTPRequest*)httpRequest withError:(NSString*)errorMessage {
+    
+    [SVProgressHUD dismiss];
 }
 
 @end

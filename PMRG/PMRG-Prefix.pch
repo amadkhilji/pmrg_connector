@@ -16,5 +16,6 @@
     #import "AppConstants.h"
     #import "AppInfo.h"
     #import "BeaconManager.h"
+    #import "HTTPRequest.h"
     #import "MFSideMenu.h"
 #endif

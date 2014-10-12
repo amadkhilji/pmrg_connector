@@ -16,7 +16,8 @@
 
 @implementation AppInfo
 
-@synthesize facebookFeed, twitterFeed;
+@synthesize facebookFeed, twitterFeed, newsFeed;
+@synthesize contactsData;
 
 static AppInfo *singletonInstance;
 +(AppInfo*)sharedInfo {
@@ -49,6 +50,12 @@ static AppInfo *singletonInstance;
         
         facebookFeed = [[NSMutableArray alloc] init];
         twitterFeed = [[NSMutableArray alloc] init];
+        newsFeed = [[NSMutableArray alloc] init];
+        contactsData = [[NSMutableDictionary alloc] init];
+        [contactsData setObject:[NSMutableArray array] forKey:@"western"];
+        [contactsData setObject:[NSMutableArray array] forKey:@"central"];
+        [contactsData setObject:[NSMutableArray array] forKey:@"southeast"];
+        [contactsData setObject:[NSMutableArray array] forKey:@"northeast"];
     }
     
     return self;
@@ -129,6 +136,108 @@ static AppInfo *singletonInstance;
             [data removeObjectForKey:@"created_at"];
             [twitterFeed addObject:data];
         }
+    }
+}
+
+-(void)loadNewsList:(NSArray*)list {
+    
+    if ([list count] > 0) {
+        [newsFeed removeAllObjects];
+        NSDateFormatter *dateFormat = [NSDateFormatter new];
+        for (int i=0; i<[list count]; i++) {
+            [dateFormat setDateFormat:@"yyyy-MM-dd"];
+            NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:[list objectAtIndex:i]];
+            NSDate* date = [dateFormat dateFromString:[data objectForKey:@"date"]];
+            [dateFormat setDateFormat:@"MMM d,yyyy"];
+            [data setObject:[dateFormat stringFromDate:date] forKey:@"date"];
+            [newsFeed addObject:data];
+        }
+    }
+}
+
+-(void)loadContactsData:(NSArray *)list {
+    
+    if ([list count] > 0) {
+        [contactsData removeAllObjects];
+        NSMutableArray *western = [NSMutableArray array];
+        NSMutableArray *central = [NSMutableArray array];
+        NSMutableArray *southeast = [NSMutableArray array];
+        NSMutableArray *northeast = [NSMutableArray array];
+        for (int i=0; i<[list count]; i++) {
+            NSDictionary *contact = [list objectAtIndex:i];
+            if (contact && [contact objectForKey:@"division"] && (NSNull*)[contact objectForKey:@"division"] != [NSNull null]) {
+                if ([[contact objectForKey:@"division"] caseInsensitiveCompare:@"western"] == NSOrderedSame) {
+                    [western addObject:contact];
+                }
+                else if ([[contact objectForKey:@"division"] caseInsensitiveCompare:@"central"] == NSOrderedSame) {
+                    [central addObject:contact];
+                }
+                else if ([[contact objectForKey:@"division"] caseInsensitiveCompare:@"southeast"] == NSOrderedSame) {
+                    [southeast addObject:contact];
+                }
+                else if ([[contact objectForKey:@"division"] caseInsensitiveCompare:@"northeast"] == NSOrderedSame) {
+                    [northeast addObject:contact];
+                }
+            }
+        }
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"rankType" ascending:NO];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+        [western sortUsingDescriptors:sortDescriptors];
+        [central sortUsingDescriptors:sortDescriptors];
+        [southeast sortUsingDescriptors:sortDescriptors];
+        [northeast sortUsingDescriptors:sortDescriptors];
+        NSString *rank = @"";
+        for (int i=0; i<[western count]; i++) {
+            NSDictionary *obj = [western objectAtIndex:i];
+            if ([rank isEqualToString:[obj objectForKey:@"rankType"]]) {
+                NSMutableDictionary *contact = [NSMutableDictionary dictionaryWithDictionary:obj];
+                [contact setObject:@"" forKey:@"rankType"];
+                [western replaceObjectAtIndex:i withObject:contact];
+            }
+            else {
+                rank = [obj objectForKey:@"rankType"];
+            }
+        }
+        rank = @"";
+        for (int i=0; i<[central count]; i++) {
+            NSDictionary *obj = [central objectAtIndex:i];
+            if ([rank isEqualToString:[obj objectForKey:@"rankType"]]) {
+                NSMutableDictionary *contact = [NSMutableDictionary dictionaryWithDictionary:obj];
+                [contact setObject:@"" forKey:@"rankType"];
+                [central replaceObjectAtIndex:i withObject:contact];
+            }
+            else {
+                rank = [obj objectForKey:@"rankType"];
+            }
+        }
+        rank = @"";
+        for (int i=0; i<[southeast count]; i++) {
+            NSDictionary *obj = [southeast objectAtIndex:i];
+            if ([rank isEqualToString:[obj objectForKey:@"rankType"]]) {
+                NSMutableDictionary *contact = [NSMutableDictionary dictionaryWithDictionary:obj];
+                [contact setObject:@"" forKey:@"rankType"];
+                [southeast replaceObjectAtIndex:i withObject:contact];
+            }
+            else {
+                rank = [obj objectForKey:@"rankType"];
+            }
+        }
+        rank = @"";
+        for (int i=0; i<[northeast count]; i++) {
+            NSDictionary *obj = [northeast objectAtIndex:i];
+            if ([rank isEqualToString:[obj objectForKey:@"rankType"]]) {
+                NSMutableDictionary *contact = [NSMutableDictionary dictionaryWithDictionary:obj];
+                [contact setObject:@"" forKey:@"rankType"];
+                [northeast replaceObjectAtIndex:i withObject:contact];
+            }
+            else {
+                rank = [obj objectForKey:@"rankType"];
+            }
+        }
+        [contactsData setObject:western forKey:@"western"];
+        [contactsData setObject:central forKey:@"central"];
+        [contactsData setObject:southeast forKey:@"southeast"];
+        [contactsData setObject:northeast forKey:@"northeast"];
     }
 }
 

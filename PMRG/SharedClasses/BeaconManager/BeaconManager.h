@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HTTPRequest.h"
 
 @import CoreLocation;
 
-@interface BeaconManager : NSObject <UIAlertViewDelegate, CLLocationManagerDelegate> {
+@interface BeaconManager : NSObject <UIAlertViewDelegate, CLLocationManagerDelegate, HTTPRequestDelegate> {
     
     NSMutableArray  *beaconsList, *beaconsInRange;
     CLLocationManager   *locationManager;

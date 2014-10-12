@@ -10,7 +10,7 @@
 
 @interface TimelineCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet UILabel  *title, *description;
+@property (nonatomic, strong) IBOutlet UILabel  *title_lbl, *description_lbl;
 @property (nonatomic, strong) IBOutlet UIImageView  *dots_separator;
 
 @end

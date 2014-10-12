@@ -8,10 +8,14 @@
 
 #import "ContactsViewController.h"
 #import "ContactsCell.h"
+#import "SVProgressHUD.h"
+#import "UIImageView+WebCache.h"
 
 @interface ContactsViewController ()
 
+-(void)loadContactsData;
 -(void)loadContactsList;
+-(void)requestToGetContactsData;
 
 @end
 
@@ -37,8 +41,11 @@
     bg_image.image = [[AppInfo sharedInfo] getContactsBackgroundImage];
     
     
-    contactsData = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Contacts_List" ofType:@"plist"]];
+    contactsData = [NSMutableDictionary dictionary];
     contactsList = [NSMutableArray array];
+    
+    [self loadContactsData];
+    [self requestToGetContactsData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -51,8 +58,6 @@
     frame.origin.y = top_bar.frame.origin.y+top_bar.frame.size.height;
     frame.size.height = bottom_bar.frame.origin.y-frame.origin.y;
     contactsTableView.frame = frame;
-    
-    [self loadContactsList];
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,22 +77,43 @@
 }
 */
 
+#pragma mark
+#pragma mark Private Methods
+
+-(void)loadContactsData {
+    
+    [contactsData removeAllObjects];
+    [contactsData addEntriesFromDictionary:[AppInfo sharedInfo].contactsData];
+    [self loadContactsList];
+}
+
 -(void)loadContactsList {
     
     [contactsList removeAllObjects];
-    if (western_btn.selected) {
+    if (western_btn.selected && [contactsData objectForKey:@"western"]) {
         [contactsList addObjectsFromArray:[contactsData objectForKey:@"western"]];
     }
-    else if (central_btn.selected) {
+    else if (central_btn.selected && [contactsData objectForKey:@"central"]) {
         [contactsList addObjectsFromArray:[contactsData objectForKey:@"central"]];
     }
-    else if (southeast_btn.selected) {
+    else if (southeast_btn.selected && [contactsData objectForKey:@"southeast"]) {
         [contactsList addObjectsFromArray:[contactsData objectForKey:@"southeast"]];
     }
-    else if (northeast_btn.selected) {
+    else if (northeast_btn.selected && [contactsData objectForKey:@"northeast"]) {
         [contactsList addObjectsFromArray:[contactsData objectForKey:@"northeast"]];
     }
 }
+
+-(void)requestToGetContactsData {
+    
+    if ([contactsList count] == 0) {
+        [SVProgressHUD showWithStatus:@"Loading contacts..." maskType:SVProgressHUDMaskTypeGradient];
+    }
+    [HTTPRequest requestGetWithMethod:nil Params:[NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:GET_ALL_CONTACTS, SERVER_USERNAME, SERVER_PASSWORD, nil] forKeys:[NSArray arrayWithObjects:@"method", @"userName", @"password", nil]] andDelegate:self];
+}
+
+#pragma mark
+#pragma mark IBAction Methods
 
 -(IBAction)menuAction:(id)sender {
     
@@ -149,7 +175,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSDictionary *contact = [contactsList objectAtIndex:indexPath.row];
-    NSString *heading = [contact objectForKey:@"heading"];
+    NSString *heading = [contact objectForKey:@"rankType"];
     if (heading.length == 0) {
         return 100.0;
     }
@@ -171,21 +197,39 @@
     }
     
     NSDictionary *contact = [contactsList objectAtIndex:indexPath.row];
-    NSString *heading = [contact objectForKey:@"heading"];
-    cell.heading_lbl.text = [NSString stringWithFormat:@"  %@", heading];
     cell.name_lbl.text = [contact objectForKey:@"name"];
-    cell.title_lbl.text = [contact objectForKey:@"title"];
-    cell.description_lbl.text = [contact objectForKey:@"description"];
+    cell.title_lbl.text = [contact objectForKey:@"rank"];
+    cell.description_lbl.text = [contact objectForKey:@"phone"];
     cell.email_lbl.text = [contact objectForKey:@"email"];
-    cell.profile_image.image = [UIImage imageNamed:[contact objectForKey:@"image"]];
-    if (heading.length > 0) {
+    [cell.profile_image setImageWithURL:[NSURL URLWithString:[contact objectForKey:@"imageURL"]]];
+    NSString *rankType = [contact objectForKey:@"rankType"];
+    if (rankType.length > 0) {
         cell.heading_lbl.hidden = NO;
+        cell.heading_lbl.text = [NSString stringWithFormat:@"  %@ | %@ Division", rankType, [contact objectForKey:@"division"]];
     }
     else {
         cell.heading_lbl.hidden = YES;
     }
     
     return cell;
+}
+
+#pragma mark
+#pragma mark HTTPRequestDelegate Methods
+
+-(void)didFinishRequest:(HTTPRequest*)httpRequest withData:(id)data {
+    
+    if (data && [data isKindOfClass:[NSDictionary class]] && [data objectForKey:@"message"] && (NSNull*)[data objectForKey:@"message"] != [NSNull null] && [[data objectForKey:@"message"] caseInsensitiveCompare:@"success"] == NSOrderedSame && [data objectForKey:@"contacts"] && [[data objectForKey:@"contacts"] isKindOfClass:[NSArray class]]) {
+        [[AppInfo sharedInfo] loadContactsData:[data objectForKey:@"contacts"]];
+        [self loadContactsData];
+        [contactsTableView reloadData];
+    }
+    [SVProgressHUD dismiss];
+}
+
+-(void)didFailRequest:(HTTPRequest*)httpRequest withError:(NSString*)errorMessage {
+    
+    [SVProgressHUD dismiss];
 }
 
 @end
