@@ -8,6 +8,7 @@
 
 #import "ContactsViewController.h"
 #import "ContactsCell.h"
+#import "SettingsViewController.h"
 #import "SVProgressHUD.h"
 #import "UIImageView+WebCache.h"
 
@@ -121,7 +122,9 @@
 }
 
 -(IBAction)settingsAction:(id)sender{
-    
+ 
+    SettingsViewController *settingsVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+    [self.navigationController pushViewController:settingsVC animated:YES];
 }
 
 -(IBAction)homeAction:(id)sender{

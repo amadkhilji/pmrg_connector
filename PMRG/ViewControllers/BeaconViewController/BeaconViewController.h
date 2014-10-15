@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BeaconViewController : UIViewController {
+@interface BeaconViewController : UIViewController <UIWebViewDelegate> {
     
-    IBOutlet UIScrollView    *scrollView;
-    IBOutlet UIImageView     *bg_image;
-    IBOutlet UIButton        *info_button;
+    IBOutlet UIWebView  *pdf_webView;
+    IBOutlet UIActivityIndicatorView    *indicator;
 }
 
 @property (nonatomic, strong) NSDictionary  *beaconData;
@@ -20,6 +19,5 @@
 -(void)showBeaconView;
 
 -(IBAction)backAction:(id)sender;
--(IBAction)infoAction:(id)sender;
 
 @end

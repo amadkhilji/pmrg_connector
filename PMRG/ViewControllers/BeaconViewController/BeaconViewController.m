@@ -30,14 +30,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    bg_image.image = [UIImage imageNamed:[NSString stringWithFormat:@"ibeacon_screen_%@.png", [beaconData objectForKey:@"tag"]]];
-    if ([[beaconData objectForKey:@"tag"] intValue] == k_Beacon1_TAG) {
-        info_button.hidden = NO;
+    
+    NSString *pdf_url = [beaconData objectForKey:@"pdf_url"];
+    if (pdf_url && (NSNull*)pdf_url != [NSNull null]) {
+        [pdf_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:pdf_url]]];
     }
-    else {
-        info_button.hidden = YES;
-    }
-    [scrollView setContentSize:CGSizeMake(320, 568)];
+    indicator.center = pdf_webView.center;
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,16 +93,34 @@
     }];
 }
 
--(IBAction)infoAction:(id)sender {
+//-(IBAction)infoAction:(id)sender {
+//    
+//    info_button.hidden = YES;
+//    UIImage * newImage= [UIImage imageNamed:@"ibeacon_screen_2.png"];
+//    [UIView transitionWithView:self.view
+//                      duration:kFadeAnimationDuration
+//                       options:UIViewAnimationOptionTransitionCrossDissolve
+//                    animations:^{
+//                        bg_image.image = newImage;
+//                    } completion:NULL];
+//}
+
+#pragma mark
+#pragma mark UIWebViewDelegate Methods
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+
+    [indicator startAnimating];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+
+    [indicator stopAnimating];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     
-    info_button.hidden = YES;
-    UIImage * newImage= [UIImage imageNamed:@"ibeacon_screen_2.png"];
-    [UIView transitionWithView:self.view
-                      duration:kFadeAnimationDuration
-                       options:UIViewAnimationOptionTransitionCrossDissolve
-                    animations:^{
-                        bg_image.image = newImage;
-                    } completion:NULL];
+    [indicator stopAnimating];
 }
 
 @end

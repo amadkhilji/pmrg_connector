@@ -24,6 +24,8 @@
 
 @implementation BeaconManager
 
+@synthesize isBeaconOn;
+
 static BeaconManager *singletonInstance;
 +(instancetype)sharedManager {
     
@@ -54,6 +56,16 @@ static BeaconManager *singletonInstance;
         beaconsInRange = [[NSMutableArray alloc] init];
         locationManager = [[CLLocationManager alloc] init];
         locationManager.delegate = self;
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        if ([defaults objectForKey:k_Beacon_Notification_Obj]) {
+            isBeaconOn = [[NSUserDefaults standardUserDefaults] boolForKey:k_Beacon_Notification];
+        }
+        else {
+            isBeaconOn = YES;
+            [defaults setObject:@"Beacon" forKey:k_Beacon_Notification_Obj];
+            [defaults setBool:isBeaconOn forKey:k_Beacon_Notification];
+            [defaults synchronize];
+        }
     }
     
     return self;
@@ -116,14 +128,21 @@ static BeaconManager *singletonInstance;
 #pragma mark
 #pragma mark Public Methods
 
+-(void)setBeaconOn:(BOOL)isOn {
+
+    isBeaconOn = isOn;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:isOn forKey:k_Beacon_Notification];
+    [defaults synchronize];
+}
+
 -(void)startMonitoringRegions {
     
     if ([beaconsList count] == 0) {
         [self requestToGetBeacons];
     }
     else {
-        for (int i=0; i<[beaconsList count]; i++) {
-            
+        for (int i=0; i<[beaconsList count] && isBeaconOn; i++) {
             CLBeaconRegion *beaconRegion = [self beaconRegionWithItem:[beaconsList objectAtIndex:i]];
             if (beaconRegion) {
                 beaconRegion.notifyEntryStateOnDisplay = YES;

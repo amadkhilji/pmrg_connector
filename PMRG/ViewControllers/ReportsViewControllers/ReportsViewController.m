@@ -9,6 +9,7 @@
 #import "ReportsViewController.h"
 #import "ReportsCell.h"
 #import "PDFViewController.h"
+#import "SettingsViewController.h"
 
 @interface ReportsViewController ()
 
@@ -120,6 +121,8 @@
 
 -(IBAction)settingsAction:(id)sender{
     
+    SettingsViewController *settingsVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+    [self.navigationController pushViewController:settingsVC animated:YES];
 }
 
 -(IBAction)homeAction:(id)sender{

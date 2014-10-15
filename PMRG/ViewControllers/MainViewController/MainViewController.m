@@ -11,6 +11,7 @@
 #import "ContactsViewController.h"
 #import "ReportsViewController.h"
 #import "PropertiesViewController.h"
+#import "SettingsViewController.h"
 
 @interface MainViewController ()
 
@@ -95,7 +96,8 @@
 
 -(IBAction)settingsAction:(id)sender {
     
-//    [[BeaconManager sharedManager] openBeaconScreenWithTag:k_Beacon1_TAG];
+    SettingsViewController *settingsVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+    [self.navigationController pushViewController:settingsVC animated:YES];
 }
 
 -(IBAction)companyAction:(id)sender {

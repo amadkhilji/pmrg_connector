@@ -19,8 +19,11 @@
     UIAlertView     *beaconAlertView;
 }
 
+@property (nonatomic, readonly) BOOL  isBeaconOn;
+
 +(instancetype)sharedManager;
 
+-(void)setBeaconOn:(BOOL)isOn;
 -(void)startMonitoringRegions;
 -(void)stopMonitoringRegions;
 -(void)openBeaconScreenWithTag:(int)beaconTag;

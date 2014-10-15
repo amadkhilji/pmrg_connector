@@ -15,6 +15,7 @@
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
 #import "SVProgressHUD.h"
+#import "SettingsViewController.h"
 
 @interface CompanyViewController ()
 
@@ -251,6 +252,8 @@
 
 -(IBAction)settingsAction:(id)sender{
     
+    SettingsViewController *settingsVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+    [self.navigationController pushViewController:settingsVC animated:YES];
 }
 
 -(IBAction)homeAction:(id)sender{
@@ -384,6 +387,7 @@
         NewsCell *cell = (NewsCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"NewsCell" owner:self options:nil] lastObject];
+            cell.selectionStyle = UITableViewCellSelectionStyleGray;
         }
         
         NSDictionary *news = [newsList objectAtIndex:indexPath.row];
@@ -507,6 +511,18 @@
     }
     
     return nil;//cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (tableView == news_tableView) {
+        NSDictionary *news = [newsList objectAtIndex:indexPath.row];
+        if (news && [news objectForKey:@"url"] && (NSNull*)[news objectForKey:@"url"] != [NSNull null]) {
+            NSString *urlString = [news objectForKey:@"url"];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+        }
+    }
 }
 
 #pragma mark

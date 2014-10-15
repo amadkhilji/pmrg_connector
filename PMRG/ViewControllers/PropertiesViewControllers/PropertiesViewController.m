@@ -7,6 +7,7 @@
 //
 
 #import "PropertiesViewController.h"
+#import "SettingsViewController.h"
 
 @interface PropertiesViewController ()
 
@@ -69,6 +70,8 @@
 
 -(IBAction)settingsAction:(id)sender{
     
+    SettingsViewController *settingsVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+    [self.navigationController pushViewController:settingsVC animated:YES];
 }
 
 -(IBAction)homeAction:(id)sender{
