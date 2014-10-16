@@ -180,12 +180,58 @@ static AppInfo *singletonInstance;
                 }
             }
         }
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"rankType" ascending:NO];
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"rankType" ascending:YES];
         NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
         [western sortUsingDescriptors:sortDescriptors];
         [central sortUsingDescriptors:sortDescriptors];
         [southeast sortUsingDescriptors:sortDescriptors];
         [northeast sortUsingDescriptors:sortDescriptors];
+        NSMutableArray *leasingList = [NSMutableArray array];
+        for (int i=0; i<[western count]; i++) {
+            NSDictionary *obj = [western objectAtIndex:i];
+            if ([[obj objectForKey:@"rankType"] caseInsensitiveCompare:@"leasing"] == NSOrderedSame) {
+                [leasingList addObject:obj];
+            }
+        }
+        [western removeObjectsInArray:leasingList];
+        [leasingList addObjectsFromArray:western];
+        [western removeAllObjects];
+        [western addObjectsFromArray:leasingList];
+        [leasingList removeAllObjects];
+        for (int i=0; i<[central count]; i++) {
+            NSDictionary *obj = [central objectAtIndex:i];
+            if ([[obj objectForKey:@"rankType"] caseInsensitiveCompare:@"leasing"] == NSOrderedSame) {
+                [leasingList addObject:obj];
+            }
+        }
+        [central removeObjectsInArray:leasingList];
+        [leasingList addObjectsFromArray:central];
+        [central removeAllObjects];
+        [central addObjectsFromArray:leasingList];
+        [leasingList removeAllObjects];
+        for (int i=0; i<[southeast count]; i++) {
+            NSDictionary *obj = [southeast objectAtIndex:i];
+            if ([[obj objectForKey:@"rankType"] caseInsensitiveCompare:@"leasing"] == NSOrderedSame) {
+                [leasingList addObject:obj];
+            }
+        }
+        [southeast removeObjectsInArray:leasingList];
+        [leasingList addObjectsFromArray:southeast];
+        [southeast removeAllObjects];
+        [southeast addObjectsFromArray:leasingList];
+        [leasingList removeAllObjects];
+        for (int i=0; i<[northeast count]; i++) {
+            NSDictionary *obj = [northeast objectAtIndex:i];
+            if ([[obj objectForKey:@"rankType"] caseInsensitiveCompare:@"leasing"] == NSOrderedSame) {
+                [leasingList addObject:obj];
+            }
+        }
+        [northeast removeObjectsInArray:leasingList];
+        [leasingList addObjectsFromArray:northeast];
+        [northeast removeAllObjects];
+        [northeast addObjectsFromArray:leasingList];
+        [leasingList removeAllObjects];
+        
         NSString *rank = @"";
         for (int i=0; i<[western count]; i++) {
             NSDictionary *obj = [western objectAtIndex:i];

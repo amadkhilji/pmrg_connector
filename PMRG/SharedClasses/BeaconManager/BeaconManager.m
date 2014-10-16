@@ -55,6 +55,9 @@ static BeaconManager *singletonInstance;
         beaconsList = [[NSMutableArray alloc] init];
         beaconsInRange = [[NSMutableArray alloc] init];
         locationManager = [[CLLocationManager alloc] init];
+        if ([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+            [locationManager requestAlwaysAuthorization];
+        }
         locationManager.delegate = self;
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         if ([defaults objectForKey:k_Beacon_Notification_Obj]) {
@@ -146,6 +149,9 @@ static BeaconManager *singletonInstance;
             CLBeaconRegion *beaconRegion = [self beaconRegionWithItem:[beaconsList objectAtIndex:i]];
             if (beaconRegion) {
                 beaconRegion.notifyEntryStateOnDisplay = YES;
+                if ([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+                    [locationManager requestAlwaysAuthorization];
+                }
                 [locationManager startMonitoringForRegion:beaconRegion];
                 [locationManager requestStateForRegion:beaconRegion];
             }
