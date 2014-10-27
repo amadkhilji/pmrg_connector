@@ -13,6 +13,7 @@
 @interface ReportsCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel  *heading_lbl, *name_lbl, *title_lbl, *description_lbl;
+@property (nonatomic, strong) IBOutlet UIButton  *pdf_btn;
 @property (nonatomic, strong) IBOutlet UIImageView  *report_image;
 @property (nonatomic, weak) ReportsViewController   *parentController;
 

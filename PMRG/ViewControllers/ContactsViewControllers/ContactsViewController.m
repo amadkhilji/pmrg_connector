@@ -204,7 +204,7 @@
     cell.title_lbl.text = [contact objectForKey:@"rank"];
     cell.description_lbl.text = [contact objectForKey:@"phone"];
     cell.email_lbl.text = [contact objectForKey:@"email"];
-    [cell.profile_image setImageWithURL:[NSURL URLWithString:[contact objectForKey:@"imageURL"]]];
+    [cell.profile_image setImageWithURL:[NSURL URLWithString:[contact objectForKey:@"imageURL"]] placeholderImage:[UIImage imageNamed:@"default_user_pic.png"]];
     NSString *rankType = [contact objectForKey:@"rankType"];
     if (rankType.length > 0) {
         cell.heading_lbl.hidden = NO;

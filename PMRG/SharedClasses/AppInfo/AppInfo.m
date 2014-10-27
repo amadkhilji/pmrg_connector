@@ -148,7 +148,7 @@ static AppInfo *singletonInstance;
             [dateFormat setDateFormat:@"yyyy-MM-dd"];
             NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:[list objectAtIndex:i]];
             NSDate* date = [dateFormat dateFromString:[data objectForKey:@"date"]];
-            [dateFormat setDateFormat:@"MMM d,yyyy"];
+            [dateFormat setDateFormat:@"MMM. d, yyyy"];
             [data setObject:[dateFormat stringFromDate:date] forKey:@"date"];
             [newsFeed addObject:data];
         }
