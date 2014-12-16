@@ -58,6 +58,7 @@ static BeaconManager *singletonInstance;
         if ([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
             [locationManager requestAlwaysAuthorization];
         }
+        locationManager.activityType = CLActivityTypeFitness;
         locationManager.delegate = self;
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         if ([defaults objectForKey:k_Beacon_Notification_Obj]) {
