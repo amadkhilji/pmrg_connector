@@ -14,11 +14,14 @@
 @interface BeaconManager ()
 
 -(void)loadBeacons:(NSArray*)list;
+-(void)loadMonitoringBeacons;
 -(void)requestToGetBeacons;
--(CLBeaconRegion *)beaconRegionWithItem:(NSDictionary *)item;
+-(CLBeaconRegion *)beaconRegionWithMajorItem:(NSDictionary *)item;
+-(CLBeaconRegion *)beaconRegionWithMinorItem:(NSDictionary *)item;
 -(void)stopMonitoringForBeacon:(CLBeaconRegion*)beacon;
 -(void)showAlertWithBeacon:(NSDictionary*)beacon;
 -(void)sendNotificationForBeacon:(NSDictionary*)beacon;
+-(BOOL)isMonitoringBeacon:(NSDictionary*)beacon;
 
 @end
 
@@ -29,7 +32,7 @@
 static BeaconManager *singletonInstance;
 +(instancetype)sharedManager {
     
-    @synchronized ([AppInfo class]) {
+    @synchronized ([BeaconManager class]) {
         
         if (!singletonInstance) {
             singletonInstance = [[BeaconManager alloc] init];
@@ -54,6 +57,7 @@ static BeaconManager *singletonInstance;
         
         beaconsList = [[NSMutableArray alloc] init];
         beaconsInRange = [[NSMutableArray alloc] init];
+        monitoringBeacons = [[NSMutableArray alloc] init];
         locationManager = [[CLLocationManager alloc] init];
         if ([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
             [locationManager requestAlwaysAuthorization];
@@ -85,8 +89,20 @@ static BeaconManager *singletonInstance;
         for (int i=0; i<[list count]; i++) {
             NSMutableDictionary *beaconObj = [NSMutableDictionary dictionaryWithDictionary:[list objectAtIndex:i]];
             [beaconObj setObject:[NSString stringWithFormat:@"%@:%i", [beaconObj objectForKey:@"uuid"], [[beaconObj objectForKey:@"id"] intValue]] forKey:@"identifier"];
-            [beaconObj setObject:[NSNumber numberWithInt:i+1] forKey:@"tag"];
+            [beaconObj setObject:[beaconObj objectForKey:@"id"] forKey:@"tag"];
             [beaconsList addObject:beaconObj];
+        }
+    }
+    [self loadMonitoringBeacons];
+}
+
+-(void)loadMonitoringBeacons {
+    
+    [monitoringBeacons removeAllObjects];
+    for (int i=0; i<[beaconsList count]; i++) {
+        NSDictionary *beacon = [beaconsList objectAtIndex:i];
+        if (![self isMonitoringBeacon:beacon]) {
+            [monitoringBeacons addObject:beacon];
         }
     }
 }
@@ -96,9 +112,15 @@ static BeaconManager *singletonInstance;
     [HTTPRequest requestGetWithMethod:nil Params:[NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:GET_ALL_BEACONS, SERVER_USERNAME, SERVER_PASSWORD, nil] forKeys:[NSArray arrayWithObjects:@"method", @"userName", @"password", nil]] andDelegate:self];
 }
 
-- (CLBeaconRegion *)beaconRegionWithItem:(NSDictionary *)item {
+- (CLBeaconRegion *)beaconRegionWithMajorItem:(NSDictionary *)item {
     
-    CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:[item objectForKey:@"uuid"]] major:[[item objectForKey:@"major"] unsignedIntValue] minor:[[item objectForKey:@"minor"] unsignedIntValue] identifier:[item objectForKey:@"identifier"]];
+    CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:[item objectForKey:@"uuid"]] major:[[item objectForKey:@"major"] unsignedIntValue] identifier:k_PMRG_Beacon];
+    return beaconRegion;
+}
+
+- (CLBeaconRegion *)beaconRegionWithMinorItem:(NSDictionary *)item {
+    
+    CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:[item objectForKey:@"uuid"]] major:[[item objectForKey:@"major"] unsignedIntValue] minor:[[item objectForKey:@"minor"] unsignedIntValue] identifier:k_PMRG_Beacon];
     return beaconRegion;
 }
 
@@ -129,6 +151,20 @@ static BeaconManager *singletonInstance;
     [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
 }
 
+-(BOOL)isMonitoringBeacon:(NSDictionary*)beacon {
+    
+    BOOL isMonitoring = NO;
+    if (beacon && [beacon isKindOfClass:[NSDictionary class]]) {
+        for (int i=0; i<[monitoringBeacons count] && !isMonitoring; i++) {
+            NSDictionary *beaconObj = [monitoringBeacons objectAtIndex:i];
+            if ([[beacon objectForKey:@"uuid"] isEqualToString:[beaconObj objectForKey:@"uuid"]] && [[beacon objectForKey:@"major"] unsignedIntValue] == [[beaconObj objectForKey:@"major"] unsignedIntValue]) {
+                isMonitoring = YES;
+            }
+        }
+    }
+    return isMonitoring;
+}
+
 #pragma mark
 #pragma mark Public Methods
 
@@ -146,8 +182,8 @@ static BeaconManager *singletonInstance;
         [self requestToGetBeacons];
     }
     else {
-        for (int i=0; i<[beaconsList count] && isBeaconOn; i++) {
-            CLBeaconRegion *beaconRegion = [self beaconRegionWithItem:[beaconsList objectAtIndex:i]];
+        for (int i=0; i<[monitoringBeacons count] && isBeaconOn; i++) {
+            CLBeaconRegion *beaconRegion = [self beaconRegionWithMajorItem:[monitoringBeacons objectAtIndex:i]];
             if (beaconRegion) {
                 beaconRegion.notifyEntryStateOnDisplay = YES;
                 if ([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
@@ -162,22 +198,30 @@ static BeaconManager *singletonInstance;
 
 -(void)stopMonitoringRegions {
     
-    for (int i=0; i<[beaconsList count]; i++) {
+    for (int i=0; i<[monitoringBeacons count]; i++) {
         
-        CLBeaconRegion *beaconRegion = [self beaconRegionWithItem:[beaconsList objectAtIndex:i]];
+        CLBeaconRegion *beaconRegion = [self beaconRegionWithMajorItem:[monitoringBeacons objectAtIndex:i]];
         [self stopMonitoringForBeacon:beaconRegion];
     }
+}
+
+-(void)stopMonitoringBeacon:(NSDictionary*)beacon {
+    
+    CLBeaconRegion *beaconRegion = [self beaconRegionWithMinorItem:beacon];
+    [self stopMonitoringForBeacon:beaconRegion];
+    [beaconsInRange removeObject:beacon];
 }
 
 -(void)openBeaconScreenWithTag:(int)beaconTag {
     
     for (NSDictionary *beacon in beaconsList) {
         if ([[beacon objectForKey:@"tag"] intValue] == beaconTag) {
-            CLBeaconRegion *beaconRegion = [self beaconRegionWithItem:beacon];
-            [self stopMonitoringForBeacon:beaconRegion];
-            BeaconViewController *beaconVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"BeaconViewController"];
-            beaconVC.beaconData = beacon;
-            [beaconVC showBeaconView];
+//            CLBeaconRegion *beaconRegion = [self beaconRegionWithItem:beacon];
+//            [self stopMonitoringForBeacon:beaconRegion];
+//            BeaconViewController *beaconVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"BeaconViewController"];
+//            beaconVC.beaconData = beacon;
+//            [beaconVC showBeaconView];
+            [[NSNotificationCenter defaultCenter] postNotificationName:k_Beacon_Notification object:beacon];
             break;
         }
     }
@@ -220,29 +264,29 @@ static BeaconManager *singletonInstance;
 - (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
     
     if (state == CLRegionStateInside) {
-        for (NSDictionary *item in beaconsList) {
-            if ([[item objectForKey:@"identifier"] isEqualToString:region.identifier]) {
-                CLBeaconRegion *beaconRegion = [self beaconRegionWithItem:item];
+        for (NSDictionary *item in monitoringBeacons) {
+            if ([k_PMRG_Beacon isEqualToString:region.identifier]) {
+                CLBeaconRegion *beaconRegion = [self beaconRegionWithMajorItem:item];
                 [locationManager startRangingBeaconsInRegion:beaconRegion];
             }
         }
     }
-    else {
-        for (NSDictionary *item in beaconsList) {
-            if ([[item objectForKey:@"identifier"] isEqualToString:region.identifier]) {
-                CLBeaconRegion *beaconRegion = [self beaconRegionWithItem:item];
-                [locationManager stopRangingBeaconsInRegion:beaconRegion];
-                [beaconsInRange removeObject:item];
-            }
-        }
-    }
+//    else {
+//        for (NSDictionary *item in beaconsList) {
+//            if ([k_PMRG_Beacon isEqualToString:region.identifier]) {
+//                CLBeaconRegion *beaconRegion = [self beaconRegionWithMinorItem:item];
+//                [locationManager stopRangingBeaconsInRegion:beaconRegion];
+//                [beaconsInRange removeObject:item];
+//            }
+//        }
+//    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
     
-    for (NSDictionary *item in beaconsList) {
-        if ([[item objectForKey:@"identifier"] isEqualToString:region.identifier]) {
-            CLBeaconRegion *beaconRegion = [self beaconRegionWithItem:item];
+    for (NSDictionary *item in monitoringBeacons) {
+        if ([k_PMRG_Beacon isEqualToString:region.identifier]) {
+            CLBeaconRegion *beaconRegion = [self beaconRegionWithMajorItem:item];
             [locationManager startRangingBeaconsInRegion:beaconRegion];
         }
     }
@@ -250,13 +294,13 @@ static BeaconManager *singletonInstance;
 
 - (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
     
-    for (NSDictionary *item in beaconsList) {
-        if ([[item objectForKey:@"identifier"] isEqualToString:region.identifier]) {
-            CLBeaconRegion *beaconRegion = [self beaconRegionWithItem:item];
-            [locationManager stopRangingBeaconsInRegion:beaconRegion];
-            [beaconsInRange removeObject:item];
-        }
-    }
+//    for (NSDictionary *item in beaconsList) {
+//        if ([k_PMRG_Beacon isEqualToString:region.identifier]) {
+//            CLBeaconRegion *beaconRegion = [self beaconRegionWithItem:item];
+//            [locationManager stopRangingBeaconsInRegion:beaconRegion];
+//            [beaconsInRange removeObject:item];
+//        }
+//    }
 }
 
 #pragma mark

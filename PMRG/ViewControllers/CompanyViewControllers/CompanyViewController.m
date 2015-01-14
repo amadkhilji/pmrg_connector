@@ -334,7 +334,9 @@
     
     if (news_btn.selected) {
         NSString *text = [[newsList objectAtIndex:indexPath.row] objectForKey:@"news"];
-        CGFloat height = [text sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:10.0] constrainedToSize:CGSizeMake(200, 100)].height;
+        UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:10.0];
+        CGFloat height = [text boundingRectWithSize:CGSizeMake(200, 100) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size.height;
+//        CGFloat height = [text sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:10.0] constrainedToSize:CGSizeMake(200, 100)].height;
         if (height < 25.0) {
             height = 25.0;
         }
@@ -345,7 +347,9 @@
     }
     else if (timeline_btn.selected) {
         NSString *text = [[timelineList objectAtIndex:indexPath.row] objectForKey:@"description"];
-        CGFloat height = [text sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:10.0] constrainedToSize:CGSizeMake(270, 200)].height;
+        UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:10.0];
+        CGFloat height = [text boundingRectWithSize:CGSizeMake(270, 200) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size.height;
+//        CGFloat height = [text sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:10.0] constrainedToSize:CGSizeMake(270, 200)].height;
         if (height < 50.0) {
             height = 50.0;
         }
@@ -394,7 +398,9 @@
         cell.date_lbl.text = [news objectForKey:@"date"];
         cell.news_lbl.text = [news objectForKey:@"title"];
 
-        CGFloat height = [cell.news_lbl.text sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:10.0] constrainedToSize:CGSizeMake(200, 100)].height;
+        UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:10.0];
+        CGFloat height = [cell.news_lbl.text boundingRectWithSize:CGSizeMake(200, 100) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size.height;
+//        CGFloat height = [cell.news_lbl.text sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:10.0] constrainedToSize:CGSizeMake(200, 100)].height;
         if (height < 25.0) {
             height = 25.0;
         }
@@ -424,7 +430,9 @@
             cell.dots_separator.hidden = NO;
         }
         
-        CGFloat height = [cell.description_lbl.text sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:10.0] constrainedToSize:CGSizeMake(270, 200)].height;
+        UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:10.0];
+        CGFloat height = [cell.description_lbl.text boundingRectWithSize:CGSizeMake(270, 200) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size.height;
+//        CGFloat height = [cell.description_lbl.text sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:10.0] constrainedToSize:CGSizeMake(270, 200)].height;
         if (height < 50.0) {
             height = 50.0;
         }

@@ -22,7 +22,7 @@ typedef enum {
     IntroBackgroundImage    imageType;
 }
 
-@property (nonatomic, readonly) NSMutableArray  *facebookFeed, *twitterFeed, *newsFeed;
+@property (nonatomic, readonly) NSMutableArray  *facebookFeed, *twitterFeed, *newsFeed, *visitedBeaconsList;
 @property (nonatomic, readonly) NSMutableDictionary  *contactsData;
 
 +(AppInfo*)sharedInfo;
@@ -31,6 +31,10 @@ typedef enum {
 -(void)loadTwitterFeed:(NSArray*)list;
 -(void)loadNewsList:(NSArray*)list;
 -(void)loadContactsData:(NSArray*)list;
+-(void)addVisitedBeacon:(NSDictionary*)beacon;
+-(void)removeVisitedBeacon:(NSDictionary*)beacon;
+-(void)loadVisitedBeacons;
+-(void)saveVisitedBeacons;
 -(UIImage*)getIntroBackgroundImage;
 -(UIImage*)getMainBackgroundImage;
 -(UIImage*)getCompanyBackgroundImage;

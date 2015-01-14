@@ -12,8 +12,11 @@
 #import "ReportsViewController.h"
 #import "PropertiesViewController.h"
 #import "SettingsViewController.h"
+#import "SVWebViewController.h"
 
 @interface MainViewController ()
+
+-(void)openBeaconScreenNotification:(NSNotification*)notification;
 
 @end
 
@@ -32,6 +35,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openBeaconScreenNotification:) name:k_Beacon_Notification object:nil];
+    
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     [self.menuContainerViewController setPanMode:MFSideMenuPanModeNone];
     bg_image.image = [[AppInfo sharedInfo] getMainBackgroundImage];
@@ -88,6 +94,23 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark
+#pragma mark Private Methods
+
+-(void)openBeaconScreenNotification:(NSNotification *)notification {
+    
+    NSDictionary *beacon = notification.object;
+    SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:[beacon objectForKey:@"pdf_url"]];
+    [self.navigationController pushViewController:webViewController animated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [[AppInfo sharedInfo] addVisitedBeacon:beacon];
+    [[AppInfo sharedInfo] saveVisitedBeacons];
+    [[BeaconManager sharedManager] stopMonitoringBeacon:beacon];
+}
+
+#pragma mark
+#pragma mark IBAction Methods
 
 -(IBAction)menuAction:(id)sender {
  

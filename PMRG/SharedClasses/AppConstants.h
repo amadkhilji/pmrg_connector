@@ -14,6 +14,8 @@
 #define k_Should_Display_Beacon     @"Should_Display_Beacon"
 #define k_Beacon_Notification       @"Beacon_Notification"
 #define k_Beacon_Notification_Obj   @"Beacon_Notification_Object"
+#define k_Visited_Beacons_List      @"Visited_Beacons_List"
+#define k_PMRG_Beacon               @"PMRG_Beacon"
 #define k_Beacon1_TAG               1
 #define k_Beacon2_TAG               2
 #define k_Beacon3_TAG               3

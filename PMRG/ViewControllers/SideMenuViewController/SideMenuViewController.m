@@ -11,6 +11,7 @@
 #import "ContactsViewController.h"
 #import "ReportsViewController.h"
 #import "PropertiesViewController.h"
+#import "RecentVisitsViewController.h"
 
 @interface SideMenuViewController ()
 
@@ -32,8 +33,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    itemLabels = [NSArray arrayWithObjects:@"Company", @"Contacts", @"Market Reports", @"Properties", nil];
-    itemIcons = [NSArray arrayWithObjects:@"company_icon.png", @"contacts_icon.png", @"chart_icon.png", @"properties_icon.png", nil];
+    itemLabels = [NSArray arrayWithObjects:@"Company", @"Contacts", @"Market Reports", @"Properties", @"Recent Visits", nil];
+    itemIcons = [NSArray arrayWithObjects:@"company_icon.png", @"contacts_icon.png", @"chart_icon.png", @"properties_icon.png", @"visit_icon.png", nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -131,6 +132,17 @@
             }
             if (!centerViewController) {
                 contentController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"PropertiesViewController"];
+            }
+            break;
+        case 4:
+            for (UIViewController *vc in navigationController.viewControllers) {
+                if ([vc isKindOfClass:[RecentVisitsViewController class]]) {
+                    centerViewController = vc;
+                    break;
+                }
+            }
+            if (!centerViewController) {
+                contentController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"RecentVisitsViewController"];
             }
             break;
         default:

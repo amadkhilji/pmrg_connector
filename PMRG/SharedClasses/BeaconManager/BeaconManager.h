@@ -13,7 +13,7 @@
 
 @interface BeaconManager : NSObject <UIAlertViewDelegate, CLLocationManagerDelegate, HTTPRequestDelegate> {
     
-    NSMutableArray  *beaconsList, *beaconsInRange;
+    NSMutableArray  *beaconsList, *beaconsInRange, *monitoringBeacons;
     CLLocationManager   *locationManager;
     
     UIAlertView     *beaconAlertView;
@@ -26,6 +26,7 @@
 -(void)setBeaconOn:(BOOL)isOn;
 -(void)startMonitoringRegions;
 -(void)stopMonitoringRegions;
+-(void)stopMonitoringBeacon:(NSDictionary*)beacon;
 -(void)openBeaconScreenWithTag:(int)beaconTag;
 
 @end

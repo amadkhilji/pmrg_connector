@@ -16,7 +16,7 @@
 
 @implementation AppInfo
 
-@synthesize facebookFeed, twitterFeed, newsFeed;
+@synthesize facebookFeed, twitterFeed, newsFeed, visitedBeaconsList;
 @synthesize contactsData;
 
 static AppInfo *singletonInstance;
@@ -52,6 +52,7 @@ static AppInfo *singletonInstance;
         twitterFeed = [[NSMutableArray alloc] init];
         newsFeed = [[NSMutableArray alloc] init];
         contactsData = [[NSMutableDictionary alloc] init];
+        visitedBeaconsList = [[NSMutableArray alloc] init];
         [contactsData setObject:[NSMutableArray array] forKey:@"western"];
         [contactsData setObject:[NSMutableArray array] forKey:@"central"];
         [contactsData setObject:[NSMutableArray array] forKey:@"southeast"];
@@ -285,6 +286,46 @@ static AppInfo *singletonInstance;
         [contactsData setObject:southeast forKey:@"southeast"];
         [contactsData setObject:northeast forKey:@"northeast"];
     }
+}
+
+-(void)addVisitedBeacon:(NSDictionary*)beacon {
+    
+    if (beacon && [beacon isKindOfClass:[NSDictionary class]]) {
+        NSMutableDictionary *beaconVisited = [NSMutableDictionary dictionaryWithDictionary:beacon];
+        [beaconVisited setObject:[NSDate date] forKey:@"date"];
+        for (int i=0; i<[visitedBeaconsList count]; i++) {
+            NSDictionary *beaconObj = [visitedBeaconsList objectAtIndex:i];
+            if ([[beacon objectForKey:@"tag"] intValue] == [[beaconObj objectForKey:@"tag"] intValue]) {
+                [visitedBeaconsList removeObjectAtIndex:i];
+                break;
+            }
+        }
+        [visitedBeaconsList insertObject:beaconVisited atIndex:0];
+    }
+}
+
+-(void)removeVisitedBeacon:(NSDictionary*)beacon {
+    
+    if (beacon && [beacon isKindOfClass:[NSDictionary class]]) {
+        [visitedBeaconsList removeObject:beacon];
+    }
+}
+
+-(void)loadVisitedBeacons {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *list = [defaults objectForKey:k_Visited_Beacons_List];
+    if (list && [list isKindOfClass:[NSArray class]]) {
+        [visitedBeaconsList removeAllObjects];
+        [visitedBeaconsList addObjectsFromArray:list];
+    }
+}
+
+-(void)saveVisitedBeacons {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:visitedBeaconsList forKey:k_Visited_Beacons_List];
+    [defaults synchronize];
 }
 
 -(UIImage*)getIntroBackgroundImage {
