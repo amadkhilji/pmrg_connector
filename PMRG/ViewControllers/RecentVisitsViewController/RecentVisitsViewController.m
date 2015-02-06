@@ -132,7 +132,11 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSDictionary *beacon = [[AppInfo sharedInfo].visitedBeaconsList objectAtIndex:indexPath.row];
-    SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:[beacon objectForKey:@"pdf_url"]];
+    NSString *urlString = [beacon objectForKey:@"pdf_url"];
+    if ((NSNull*)urlString == [NSNull null]) {
+        urlString = @"";
+    }
+    SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:urlString];
     [self.navigationController pushViewController:webViewController animated:YES];
 }
 

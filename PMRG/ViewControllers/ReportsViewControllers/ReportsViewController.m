@@ -212,7 +212,7 @@
     else {
         cell.heading_lbl.hidden = YES;
     }
-    if ([[report objectForKey:@"pdf_file"] length] > 0 && [[report objectForKey:@"pdf_link"] length] > 0) {
+    if ([[report objectForKey:@"pdf_file"] length] > 0 || [[report objectForKey:@"pdf_link"] length] > 0) {
         [cell.pdf_btn setTitle:@"PDF" forState:UIControlStateNormal];
         cell.pdf_btn.enabled = YES;
     }

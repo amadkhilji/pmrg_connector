@@ -101,7 +101,11 @@
 -(void)openBeaconScreenNotification:(NSNotification *)notification {
     
     NSDictionary *beacon = notification.object;
-    SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:[beacon objectForKey:@"pdf_url"]];
+    NSString *urlString = [beacon objectForKey:@"pdf_url"];
+    if ((NSNull*)urlString == [NSNull null]) {
+        urlString = @"";
+    }
+    SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:urlString];
     [self.navigationController pushViewController:webViewController animated:YES];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [[AppInfo sharedInfo] addVisitedBeacon:beacon];

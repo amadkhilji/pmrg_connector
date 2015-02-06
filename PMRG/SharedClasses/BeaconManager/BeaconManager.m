@@ -88,9 +88,11 @@ static BeaconManager *singletonInstance;
         [beaconsList removeAllObjects];
         for (int i=0; i<[list count]; i++) {
             NSMutableDictionary *beaconObj = [NSMutableDictionary dictionaryWithDictionary:[list objectAtIndex:i]];
-            [beaconObj setObject:[NSString stringWithFormat:@"%@:%i", [beaconObj objectForKey:@"uuid"], [[beaconObj objectForKey:@"id"] intValue]] forKey:@"identifier"];
-            [beaconObj setObject:[beaconObj objectForKey:@"id"] forKey:@"tag"];
-            [beaconsList addObject:beaconObj];
+            if ((NSNull*)[beaconObj objectForKey:@"uuid"] != [NSNull null] && [[beaconObj objectForKey:@"uuid"] length] > 0 && (NSNull*)[beaconObj objectForKey:@"major"] != [NSNull null] && [[beaconObj objectForKey:@"major"] unsignedIntValue] > 0 && (NSNull*)[beaconObj objectForKey:@"minor"] != [NSNull null] && [[beaconObj objectForKey:@"minor"] unsignedIntValue] > 0) {
+                [beaconObj setObject:[NSString stringWithFormat:@"%@:%i", [beaconObj objectForKey:@"uuid"], [[beaconObj objectForKey:@"id"] intValue]] forKey:@"identifier"];
+                [beaconObj setObject:[beaconObj objectForKey:@"id"] forKey:@"tag"];
+                [beaconsList addObject:beaconObj];
+            }
         }
     }
     [self loadMonitoringBeacons];
