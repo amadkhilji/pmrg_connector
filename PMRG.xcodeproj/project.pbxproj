@@ -172,26 +172,26 @@
 		77CDA26319B37A3800B02BD4 /* ReportsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77CDA26119B37A3800B02BD4 /* ReportsCell.xib */; };
 		77CDA26819B3839800B02BD4 /* PDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CDA26619B3839800B02BD4 /* PDFViewController.m */; };
 		77CDA26B19B38A8500B02BD4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77CDA26A19B38A8500B02BD4 /* MapKit.framework */; };
-		77D97DC81AF7ECCA00C765A8 /* Q1_2015_Atlanta_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DAF1AF7ECCA00C765A8 /* Q1_2015_Atlanta_cover.jpg */; };
-		77D97DC91AF7ECCA00C765A8 /* Q1_2015_Dallas_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DB01AF7ECCA00C765A8 /* Q1_2015_Dallas_cover.jpg */; };
-		77D97DCA1AF7ECCA00C765A8 /* Q1_2015_DC_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DB11AF7ECCA00C765A8 /* Q1_2015_DC_cover.jpg */; };
-		77D97DCB1AF7ECCA00C765A8 /* Q1_2015_Houston_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DB21AF7ECCA00C765A8 /* Q1_2015_Houston_cover.jpg */; };
-		77D97DCC1AF7ECCA00C765A8 /* Q1_2015_IE_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DB31AF7ECCA00C765A8 /* Q1_2015_IE_cover.jpg */; };
-		77D97DCD1AF7ECCA00C765A8 /* Q1_2015_LA_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DB41AF7ECCA00C765A8 /* Q1_2015_LA_cover.jpg */; };
-		77D97DCE1AF7ECCA00C765A8 /* Q1_2015_LA_Medical_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DB51AF7ECCA00C765A8 /* Q1_2015_LA_Medical_cover.jpg */; };
-		77D97DCF1AF7ECCA00C765A8 /* Q1_2015_OC_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DB61AF7ECCA00C765A8 /* Q1_2015_OC_cover.jpg */; };
-		77D97DD01AF7ECCA00C765A8 /* Q1_2015_OC_Medical_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DB71AF7ECCA00C765A8 /* Q1_2015_OC_Medical_cover.jpg */; };
-		77D97DD11AF7ECCA00C765A8 /* Q1_2015_SanDiego_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DB81AF7ECCA00C765A8 /* Q1_2015_SanDiego_cover.jpg */; };
-		77D97DD21AF7ECCA00C765A8 /* Q1_2015_Dallas.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DBB1AF7ECCA00C765A8 /* Q1_2015_Dallas.pdf */; };
-		77D97DD31AF7ECCA00C765A8 /* Q1_2015_Houston.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DBC1AF7ECCA00C765A8 /* Q1_2015_Houston.pdf */; };
-		77D97DD41AF7ECCA00C765A8 /* Q1_2015_DC.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DBE1AF7ECCA00C765A8 /* Q1_2015_DC.pdf */; };
-		77D97DD51AF7ECCA00C765A8 /* Q1_2015_Atlanta.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DC01AF7ECCA00C765A8 /* Q1_2015_Atlanta.pdf */; };
-		77D97DD61AF7ECCA00C765A8 /* Q1_2015_IE.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DC21AF7ECCA00C765A8 /* Q1_2015_IE.pdf */; };
-		77D97DD71AF7ECCA00C765A8 /* Q1_2015_LA.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DC31AF7ECCA00C765A8 /* Q1_2015_LA.pdf */; };
-		77D97DD81AF7ECCA00C765A8 /* Q1_2015_LA_Medical.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DC41AF7ECCA00C765A8 /* Q1_2015_LA_Medical.pdf */; };
-		77D97DD91AF7ECCA00C765A8 /* Q1_2015_OC.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DC51AF7ECCA00C765A8 /* Q1_2015_OC.pdf */; };
-		77D97DDA1AF7ECCA00C765A8 /* Q1_2015_OC_Medical.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DC61AF7ECCA00C765A8 /* Q1_2015_OC_Medical.pdf */; };
-		77D97DDB1AF7ECCA00C765A8 /* Q1_2015_SanDiego.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 77D97DC71AF7ECCA00C765A8 /* Q1_2015_SanDiego.pdf */; };
+		FC141B2F1B6295E500A42DFE /* Q2_2015_Atlanta_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC141B251B6295E500A42DFE /* Q2_2015_Atlanta_cover.jpg */; };
+		FC141B301B6295E500A42DFE /* Q2_2015_Dallas_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC141B261B6295E500A42DFE /* Q2_2015_Dallas_cover.jpg */; };
+		FC141B311B6295E500A42DFE /* Q2_2015_DC_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC141B271B6295E500A42DFE /* Q2_2015_DC_cover.jpg */; };
+		FC141B321B6295E500A42DFE /* Q2_2015_Houston_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC141B281B6295E500A42DFE /* Q2_2015_Houston_cover.jpg */; };
+		FC141B331B6295E500A42DFE /* Q2_2015_IE_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC141B291B6295E500A42DFE /* Q2_2015_IE_cover.jpg */; };
+		FC141B341B6295E500A42DFE /* Q2_2015_LA_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC141B2A1B6295E500A42DFE /* Q2_2015_LA_cover.jpg */; };
+		FC141B351B6295E500A42DFE /* Q2_2015_LA_MOB_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC141B2B1B6295E500A42DFE /* Q2_2015_LA_MOB_cover.jpg */; };
+		FC141B361B6295E500A42DFE /* Q2_2015_OC_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC141B2C1B6295E500A42DFE /* Q2_2015_OC_cover.jpg */; };
+		FC141B371B6295E500A42DFE /* Q2_2015_OC_MOB_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC141B2D1B6295E500A42DFE /* Q2_2015_OC_MOB_cover.jpg */; };
+		FC141B381B6295E500A42DFE /* Q2_2015_SanDiego_cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC141B2E1B6295E500A42DFE /* Q2_2015_SanDiego_cover.jpg */; };
+		FC141B3B1B62962E00A42DFE /* Q2_2015_Dallas.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FC141B391B62962E00A42DFE /* Q2_2015_Dallas.pdf */; };
+		FC141B3C1B62962E00A42DFE /* Q2_2015_Houston.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FC141B3A1B62962E00A42DFE /* Q2_2015_Houston.pdf */; };
+		FC141B3E1B62964300A42DFE /* Q2_2015_DC.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FC141B3D1B62964300A42DFE /* Q2_2015_DC.pdf */; };
+		FC141B401B62965300A42DFE /* Q2_2015_Atlanta.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FC141B3F1B62965300A42DFE /* Q2_2015_Atlanta.pdf */; };
+		FC141B471B62968200A42DFE /* Q2_2015_IE.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FC141B411B62968200A42DFE /* Q2_2015_IE.pdf */; };
+		FC141B481B62968200A42DFE /* Q2_2015_LA_MOB.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FC141B421B62968200A42DFE /* Q2_2015_LA_MOB.pdf */; };
+		FC141B491B62968200A42DFE /* Q2_2015_LA.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FC141B431B62968200A42DFE /* Q2_2015_LA.pdf */; };
+		FC141B4A1B62968200A42DFE /* Q2_2015_OC_MOB.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FC141B441B62968200A42DFE /* Q2_2015_OC_MOB.pdf */; };
+		FC141B4B1B62968200A42DFE /* Q2_2015_OC.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FC141B451B62968200A42DFE /* Q2_2015_OC.pdf */; };
+		FC141B4C1B62968200A42DFE /* Q2_2015_SanDiego.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FC141B461B62968200A42DFE /* Q2_2015_SanDiego.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -423,26 +423,26 @@
 		77CDA26519B3839800B02BD4 /* PDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFViewController.h; sourceTree = "<group>"; };
 		77CDA26619B3839800B02BD4 /* PDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFViewController.m; sourceTree = "<group>"; };
 		77CDA26A19B38A8500B02BD4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		77D97DAF1AF7ECCA00C765A8 /* Q1_2015_Atlanta_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q1_2015_Atlanta_cover.jpg; sourceTree = "<group>"; };
-		77D97DB01AF7ECCA00C765A8 /* Q1_2015_Dallas_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q1_2015_Dallas_cover.jpg; sourceTree = "<group>"; };
-		77D97DB11AF7ECCA00C765A8 /* Q1_2015_DC_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q1_2015_DC_cover.jpg; sourceTree = "<group>"; };
-		77D97DB21AF7ECCA00C765A8 /* Q1_2015_Houston_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q1_2015_Houston_cover.jpg; sourceTree = "<group>"; };
-		77D97DB31AF7ECCA00C765A8 /* Q1_2015_IE_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q1_2015_IE_cover.jpg; sourceTree = "<group>"; };
-		77D97DB41AF7ECCA00C765A8 /* Q1_2015_LA_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q1_2015_LA_cover.jpg; sourceTree = "<group>"; };
-		77D97DB51AF7ECCA00C765A8 /* Q1_2015_LA_Medical_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q1_2015_LA_Medical_cover.jpg; sourceTree = "<group>"; };
-		77D97DB61AF7ECCA00C765A8 /* Q1_2015_OC_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q1_2015_OC_cover.jpg; sourceTree = "<group>"; };
-		77D97DB71AF7ECCA00C765A8 /* Q1_2015_OC_Medical_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q1_2015_OC_Medical_cover.jpg; sourceTree = "<group>"; };
-		77D97DB81AF7ECCA00C765A8 /* Q1_2015_SanDiego_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q1_2015_SanDiego_cover.jpg; sourceTree = "<group>"; };
-		77D97DBB1AF7ECCA00C765A8 /* Q1_2015_Dallas.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q1_2015_Dallas.pdf; sourceTree = "<group>"; };
-		77D97DBC1AF7ECCA00C765A8 /* Q1_2015_Houston.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q1_2015_Houston.pdf; sourceTree = "<group>"; };
-		77D97DBE1AF7ECCA00C765A8 /* Q1_2015_DC.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q1_2015_DC.pdf; sourceTree = "<group>"; };
-		77D97DC01AF7ECCA00C765A8 /* Q1_2015_Atlanta.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q1_2015_Atlanta.pdf; sourceTree = "<group>"; };
-		77D97DC21AF7ECCA00C765A8 /* Q1_2015_IE.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q1_2015_IE.pdf; sourceTree = "<group>"; };
-		77D97DC31AF7ECCA00C765A8 /* Q1_2015_LA.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q1_2015_LA.pdf; sourceTree = "<group>"; };
-		77D97DC41AF7ECCA00C765A8 /* Q1_2015_LA_Medical.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q1_2015_LA_Medical.pdf; sourceTree = "<group>"; };
-		77D97DC51AF7ECCA00C765A8 /* Q1_2015_OC.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q1_2015_OC.pdf; sourceTree = "<group>"; };
-		77D97DC61AF7ECCA00C765A8 /* Q1_2015_OC_Medical.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q1_2015_OC_Medical.pdf; sourceTree = "<group>"; };
-		77D97DC71AF7ECCA00C765A8 /* Q1_2015_SanDiego.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q1_2015_SanDiego.pdf; sourceTree = "<group>"; };
+		FC141B251B6295E500A42DFE /* Q2_2015_Atlanta_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q2_2015_Atlanta_cover.jpg; sourceTree = "<group>"; };
+		FC141B261B6295E500A42DFE /* Q2_2015_Dallas_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q2_2015_Dallas_cover.jpg; sourceTree = "<group>"; };
+		FC141B271B6295E500A42DFE /* Q2_2015_DC_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q2_2015_DC_cover.jpg; sourceTree = "<group>"; };
+		FC141B281B6295E500A42DFE /* Q2_2015_Houston_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q2_2015_Houston_cover.jpg; sourceTree = "<group>"; };
+		FC141B291B6295E500A42DFE /* Q2_2015_IE_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q2_2015_IE_cover.jpg; sourceTree = "<group>"; };
+		FC141B2A1B6295E500A42DFE /* Q2_2015_LA_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q2_2015_LA_cover.jpg; sourceTree = "<group>"; };
+		FC141B2B1B6295E500A42DFE /* Q2_2015_LA_MOB_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q2_2015_LA_MOB_cover.jpg; sourceTree = "<group>"; };
+		FC141B2C1B6295E500A42DFE /* Q2_2015_OC_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q2_2015_OC_cover.jpg; sourceTree = "<group>"; };
+		FC141B2D1B6295E500A42DFE /* Q2_2015_OC_MOB_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q2_2015_OC_MOB_cover.jpg; sourceTree = "<group>"; };
+		FC141B2E1B6295E500A42DFE /* Q2_2015_SanDiego_cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q2_2015_SanDiego_cover.jpg; sourceTree = "<group>"; };
+		FC141B391B62962E00A42DFE /* Q2_2015_Dallas.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q2_2015_Dallas.pdf; sourceTree = "<group>"; };
+		FC141B3A1B62962E00A42DFE /* Q2_2015_Houston.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q2_2015_Houston.pdf; sourceTree = "<group>"; };
+		FC141B3D1B62964300A42DFE /* Q2_2015_DC.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q2_2015_DC.pdf; sourceTree = "<group>"; };
+		FC141B3F1B62965300A42DFE /* Q2_2015_Atlanta.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q2_2015_Atlanta.pdf; sourceTree = "<group>"; };
+		FC141B411B62968200A42DFE /* Q2_2015_IE.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q2_2015_IE.pdf; sourceTree = "<group>"; };
+		FC141B421B62968200A42DFE /* Q2_2015_LA_MOB.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q2_2015_LA_MOB.pdf; sourceTree = "<group>"; };
+		FC141B431B62968200A42DFE /* Q2_2015_LA.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q2_2015_LA.pdf; sourceTree = "<group>"; };
+		FC141B441B62968200A42DFE /* Q2_2015_OC_MOB.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q2_2015_OC_MOB.pdf; sourceTree = "<group>"; };
+		FC141B451B62968200A42DFE /* Q2_2015_OC.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q2_2015_OC.pdf; sourceTree = "<group>"; };
+		FC141B461B62968200A42DFE /* Q2_2015_SanDiego.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Q2_2015_SanDiego.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1039,16 +1039,16 @@
 		77D97DAE1AF7ECCA00C765A8 /* Covers */ = {
 			isa = PBXGroup;
 			children = (
-				77D97DAF1AF7ECCA00C765A8 /* Q1_2015_Atlanta_cover.jpg */,
-				77D97DB01AF7ECCA00C765A8 /* Q1_2015_Dallas_cover.jpg */,
-				77D97DB11AF7ECCA00C765A8 /* Q1_2015_DC_cover.jpg */,
-				77D97DB21AF7ECCA00C765A8 /* Q1_2015_Houston_cover.jpg */,
-				77D97DB31AF7ECCA00C765A8 /* Q1_2015_IE_cover.jpg */,
-				77D97DB41AF7ECCA00C765A8 /* Q1_2015_LA_cover.jpg */,
-				77D97DB51AF7ECCA00C765A8 /* Q1_2015_LA_Medical_cover.jpg */,
-				77D97DB61AF7ECCA00C765A8 /* Q1_2015_OC_cover.jpg */,
-				77D97DB71AF7ECCA00C765A8 /* Q1_2015_OC_Medical_cover.jpg */,
-				77D97DB81AF7ECCA00C765A8 /* Q1_2015_SanDiego_cover.jpg */,
+				FC141B251B6295E500A42DFE /* Q2_2015_Atlanta_cover.jpg */,
+				FC141B261B6295E500A42DFE /* Q2_2015_Dallas_cover.jpg */,
+				FC141B271B6295E500A42DFE /* Q2_2015_DC_cover.jpg */,
+				FC141B281B6295E500A42DFE /* Q2_2015_Houston_cover.jpg */,
+				FC141B291B6295E500A42DFE /* Q2_2015_IE_cover.jpg */,
+				FC141B2A1B6295E500A42DFE /* Q2_2015_LA_cover.jpg */,
+				FC141B2B1B6295E500A42DFE /* Q2_2015_LA_MOB_cover.jpg */,
+				FC141B2C1B6295E500A42DFE /* Q2_2015_OC_cover.jpg */,
+				FC141B2D1B6295E500A42DFE /* Q2_2015_OC_MOB_cover.jpg */,
+				FC141B2E1B6295E500A42DFE /* Q2_2015_SanDiego_cover.jpg */,
 			);
 			path = Covers;
 			sourceTree = "<group>";
@@ -1067,8 +1067,8 @@
 		77D97DBA1AF7ECCA00C765A8 /* Central */ = {
 			isa = PBXGroup;
 			children = (
-				77D97DBB1AF7ECCA00C765A8 /* Q1_2015_Dallas.pdf */,
-				77D97DBC1AF7ECCA00C765A8 /* Q1_2015_Houston.pdf */,
+				FC141B391B62962E00A42DFE /* Q2_2015_Dallas.pdf */,
+				FC141B3A1B62962E00A42DFE /* Q2_2015_Houston.pdf */,
 			);
 			path = Central;
 			sourceTree = "<group>";
@@ -1076,7 +1076,7 @@
 		77D97DBD1AF7ECCA00C765A8 /* Northeast */ = {
 			isa = PBXGroup;
 			children = (
-				77D97DBE1AF7ECCA00C765A8 /* Q1_2015_DC.pdf */,
+				FC141B3D1B62964300A42DFE /* Q2_2015_DC.pdf */,
 			);
 			path = Northeast;
 			sourceTree = "<group>";
@@ -1084,7 +1084,7 @@
 		77D97DBF1AF7ECCA00C765A8 /* Southeast */ = {
 			isa = PBXGroup;
 			children = (
-				77D97DC01AF7ECCA00C765A8 /* Q1_2015_Atlanta.pdf */,
+				FC141B3F1B62965300A42DFE /* Q2_2015_Atlanta.pdf */,
 			);
 			path = Southeast;
 			sourceTree = "<group>";
@@ -1092,12 +1092,12 @@
 		77D97DC11AF7ECCA00C765A8 /* Western */ = {
 			isa = PBXGroup;
 			children = (
-				77D97DC21AF7ECCA00C765A8 /* Q1_2015_IE.pdf */,
-				77D97DC31AF7ECCA00C765A8 /* Q1_2015_LA.pdf */,
-				77D97DC41AF7ECCA00C765A8 /* Q1_2015_LA_Medical.pdf */,
-				77D97DC51AF7ECCA00C765A8 /* Q1_2015_OC.pdf */,
-				77D97DC61AF7ECCA00C765A8 /* Q1_2015_OC_Medical.pdf */,
-				77D97DC71AF7ECCA00C765A8 /* Q1_2015_SanDiego.pdf */,
+				FC141B411B62968200A42DFE /* Q2_2015_IE.pdf */,
+				FC141B421B62968200A42DFE /* Q2_2015_LA_MOB.pdf */,
+				FC141B431B62968200A42DFE /* Q2_2015_LA.pdf */,
+				FC141B441B62968200A42DFE /* Q2_2015_OC_MOB.pdf */,
+				FC141B451B62968200A42DFE /* Q2_2015_OC.pdf */,
+				FC141B461B62968200A42DFE /* Q2_2015_SanDiego.pdf */,
 			);
 			path = Western;
 			sourceTree = "<group>";
@@ -1197,16 +1197,16 @@
 			files = (
 				77699D8719B1D2A1009EC88B /* top_menu_btn.png in Resources */,
 				77B8F1A019A130A1001CB660 /* settings_icon.png in Resources */,
-				77D97DCB1AF7ECCA00C765A8 /* Q1_2015_Houston_cover.jpg in Resources */,
-				77D97DD81AF7ECCA00C765A8 /* Q1_2015_LA_Medical.pdf in Resources */,
+				FC141B341B6295E500A42DFE /* Q2_2015_LA_cover.jpg in Resources */,
+				FC141B4C1B62968200A42DFE /* Q2_2015_SanDiego.pdf in Resources */,
 				77699D8819B1D2A1009EC88B /* top_menu_btn_selected.png in Resources */,
+				FC141B471B62968200A42DFE /* Q2_2015_IE.pdf in Resources */,
 				77C6FB3919AA140B00A74996 /* Sinclair_Brad.png in Resources */,
-				77D97DD71AF7ECCA00C765A8 /* Q1_2015_LA.pdf in Resources */,
 				77B8F17019A130A1001CB660 /* northeast_btn_selected.png in Resources */,
 				77B8F18219A130A1001CB660 /* Icon-50@2x.png in Resources */,
+				FC141B381B6295E500A42DFE /* Q2_2015_SanDiego_cover.jpg in Resources */,
 				7706538E19BEF147001E1BE9 /* Beacons_List.plist in Resources */,
-				77D97DDB1AF7ECCA00C765A8 /* Q1_2015_SanDiego.pdf in Resources */,
-				77D97DCE1AF7ECCA00C765A8 /* Q1_2015_LA_Medical_cover.jpg in Resources */,
+				FC141B2F1B6295E500A42DFE /* Q2_2015_Atlanta_cover.jpg in Resources */,
 				77B8F18F19A130A1001CB660 /* Intro_bg2_i5.png in Resources */,
 				77B8F17A19A130A1001CB660 /* top_bar_logo.png in Resources */,
 				77699D8519B1D2A1009EC88B /* grey_circle.png in Resources */,
@@ -1215,25 +1215,21 @@
 				77681CE019A482F40000F372 /* main_bg1.png in Resources */,
 				774E03701A652BEE00A930EB /* SVWebViewControllerActivitySafari@2x.png in Resources */,
 				77B8F18919A130A1001CB660 /* Icon-76@2x.png in Resources */,
+				FC141B331B6295E500A42DFE /* Q2_2015_IE_cover.jpg in Resources */,
 				77B8F19019A130A1001CB660 /* Intro_bg3.png in Resources */,
 				7706539D19BF38C7001E1BE9 /* back_app_btn.png in Resources */,
 				77B8F19B19A130A1001CB660 /* home_icon.png in Resources */,
 				77B8F19319A130A1001CB660 /* Intro_bg4_i5.png in Resources */,
 				77B8F17D19A130A1001CB660 /* Icon-29.png in Resources */,
-				77D97DD01AF7ECCA00C765A8 /* Q1_2015_OC_Medical_cover.jpg in Resources */,
 				774E03671A652BEE00A930EB /* SVWebViewController.bundle in Resources */,
 				774E036C1A652BEE00A930EB /* SVWebViewControllerActivityChrome@2x.png in Resources */,
-				77D97DD11AF7ECCA00C765A8 /* Q1_2015_SanDiego_cover.jpg in Resources */,
+				FC141B351B6295E500A42DFE /* Q2_2015_LA_MOB_cover.jpg in Resources */,
 				776EA9D81A06276A00C2CC75 /* Icon-60@3x.png in Resources */,
 				77681CE319A482F40000F372 /* main_bg3_i5.png in Resources */,
 				774E03651A652BED00A930EB /* SVWebViewController.strings in Resources */,
 				774E036A1A652BEE00A930EB /* SVWebViewControllerActivityChrome-iPad@2x.png in Resources */,
-				77D97DC91AF7ECCA00C765A8 /* Q1_2015_Dallas_cover.jpg in Resources */,
 				77C6FB3619AA140B00A74996 /* Cherry_Kurt.png in Resources */,
 				770F858619BB54C200E9EF11 /* SocialCell.xib in Resources */,
-				77D97DCC1AF7ECCA00C765A8 /* Q1_2015_IE_cover.jpg in Resources */,
-				77D97DD21AF7ECCA00C765A8 /* Q1_2015_Dallas.pdf in Resources */,
-				77D97DD31AF7ECCA00C765A8 /* Q1_2015_Houston.pdf in Resources */,
 				77B8F19619A130A1001CB660 /* dots_bottom.png in Resources */,
 				77B8F16B19A130A1001CB660 /* contacts_cell_bg.png in Resources */,
 				7706539919BF3574001E1BE9 /* ibeacon_screen_3.png in Resources */,
@@ -1245,9 +1241,12 @@
 				774DCE6519B31F650093B47A /* TimelineCell.xib in Resources */,
 				77699D8419B1D2A1009EC88B /* dots.png in Resources */,
 				77B8F18B19A130A1001CB660 /* iTunesArtwork@2x.png in Resources */,
+				FC141B3B1B62962E00A42DFE /* Q2_2015_Dallas.pdf in Resources */,
 				77B8F19919A130A1001CB660 /* dots_top.png in Resources */,
 				77C6FB2D19AA086200A74996 /* Contacts_List.plist in Resources */,
+				FC141B3E1B62964300A42DFE /* Q2_2015_DC.pdf in Resources */,
 				77B8F16D19A130A1001CB660 /* contacts_text.png in Resources */,
+				FC141B481B62968200A42DFE /* Q2_2015_LA_MOB.pdf in Resources */,
 				77C6FB3B19AA140B00A74996 /* Weghorst_Bill.png in Resources */,
 				77B8F17819A130A1001CB660 /* southeast_btn.png in Resources */,
 				774E03691A652BEE00A930EB /* SVWebViewControllerActivityChrome-iPad.png in Resources */,
@@ -1255,28 +1254,26 @@
 				77B8F18419A130A1001CB660 /* Icon-57@2x.png in Resources */,
 				77B8F17E19A130A1001CB660 /* Icon-29@2x.png in Resources */,
 				77C6FB3519AA140B00A74996 /* Bowlin_Wade.png in Resources */,
+				FC141B3C1B62962E00A42DFE /* Q2_2015_Houston.pdf in Resources */,
 				77B8F18319A130A1001CB660 /* Icon-57.png in Resources */,
 				77B8F19A19A130A1001CB660 /* drag_text.png in Resources */,
+				FC141B361B6295E500A42DFE /* Q2_2015_OC_cover.jpg in Resources */,
 				77C11AB719A38943007F674B /* chart_icon.png in Resources */,
 				77B8F18819A130A1001CB660 /* Icon-76.png in Resources */,
 				77699D8319B1D2A1009EC88B /* bottom_shadow.png in Resources */,
 				774DCE5E19B30A390093B47A /* NewsCell.xib in Resources */,
 				774E036E1A652BEE00A930EB /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */,
 				77C6FB3719AA140B00A74996 /* Parker_David.png in Resources */,
-				77D97DCF1AF7ECCA00C765A8 /* Q1_2015_OC_cover.jpg in Resources */,
+				FC141B311B6295E500A42DFE /* Q2_2015_DC_cover.jpg in Resources */,
 				77699D8119B1D2A1009EC88B /* about_us_cover_photo.png in Resources */,
-				77D97DCA1AF7ECCA00C765A8 /* Q1_2015_DC_cover.jpg in Resources */,
 				77B8F19519A130A1001CB660 /* contacts_btn.png in Resources */,
 				77B8F17919A130A1001CB660 /* southeast_btn_selected.png in Resources */,
-				77D97DD91AF7ECCA00C765A8 /* Q1_2015_OC.pdf in Resources */,
 				77CDA26319B37A3800B02BD4 /* ReportsCell.xib in Resources */,
 				77B8F19119A130A1001CB660 /* Intro_bg3_i5.png in Resources */,
-				77D97DD51AF7ECCA00C765A8 /* Q1_2015_Atlanta.pdf in Resources */,
 				77B8F17C19A130A1001CB660 /* western_btn_selected.png in Resources */,
 				77B8F16919A130A1001CB660 /* central_btn.png in Resources */,
 				77B8F18D19A130A1001CB660 /* Intro_bg1_i5.png in Resources */,
 				77B8F16C19A130A1001CB660 /* contacts_cell_header_bg.png in Resources */,
-				77D97DCD1AF7ECCA00C765A8 /* Q1_2015_LA_cover.jpg in Resources */,
 				77B8F16F19A130A1001CB660 /* northeast_btn.png in Resources */,
 				77B8F0EF19A12E96001CB660 /* InfoPlist.strings in Resources */,
 				77681CE619A482F40000F372 /* main_bg4.png in Resources */,
@@ -1284,7 +1281,7 @@
 				77643A7519EAF42300193801 /* default_user_pic.png in Resources */,
 				7761D4B01A6550A00047F7D1 /* visit_icon.png in Resources */,
 				77B8F16E19A130A1001CB660 /* nav_bar.png in Resources */,
-				77D97DD41AF7ECCA00C765A8 /* Q1_2015_DC.pdf in Resources */,
+				FC141B491B62968200A42DFE /* Q2_2015_LA.pdf in Resources */,
 				77B8F19819A130A1001CB660 /* dots_right.png in Resources */,
 				77B8F18C19A130A1001CB660 /* Intro_bg1.png in Resources */,
 				77C11AB919A38943007F674B /* contacts_icon.png in Resources */,
@@ -1292,24 +1289,26 @@
 				77681CE519A482F40000F372 /* main_bg4_i5.png in Resources */,
 				770F858A19BB597000E9EF11 /* twitter_icon.png in Resources */,
 				77681CE119A482F40000F372 /* main_bg2_i5.png in Resources */,
+				FC141B321B6295E500A42DFE /* Q2_2015_Houston_cover.jpg in Resources */,
+				FC141B4A1B62968200A42DFE /* Q2_2015_OC_MOB.pdf in Resources */,
 				77B8F17B19A130A1001CB660 /* western_btn.png in Resources */,
 				77681CE219A482F40000F372 /* main_bg2.png in Resources */,
 				77699D8619B1D2A1009EC88B /* separator_bubbles.png in Resources */,
 				77B8F18519A130A1001CB660 /* Icon-60@2x.png in Resources */,
-				77D97DDA1AF7ECCA00C765A8 /* Q1_2015_OC_Medical.pdf in Resources */,
 				77B8F18E19A130A1001CB660 /* Intro_bg2.png in Resources */,
 				7745DDA619BC5B2F00EC9D69 /* SVProgressHUD.bundle in Resources */,
+				FC141B371B6295E500A42DFE /* Q2_2015_OC_MOB_cover.jpg in Resources */,
 				77B8F19219A130A1001CB660 /* Intro_bg4.png in Resources */,
 				77B8F0F819A12E96001CB660 /* Main.storyboard in Resources */,
 				77681CDF19A482F40000F372 /* main_bg1_i5.png in Resources */,
 				7706539F19BF38C7001E1BE9 /* top_bar.png in Resources */,
 				77B8F18019A130A1001CB660 /* Icon-40@2x.png in Resources */,
 				77B8F18119A130A1001CB660 /* Icon-50.png in Resources */,
+				FC141B301B6295E500A42DFE /* Q2_2015_Dallas_cover.jpg in Resources */,
 				77B8F19419A130A1001CB660 /* company_btn.png in Resources */,
 				77C11AB819A38943007F674B /* company_icon.png in Resources */,
 				77B8F19E19A130A1001CB660 /* properties_btn.png in Resources */,
 				77CDA25A19B36C5C00B02BD4 /* Reports_List.plist in Resources */,
-				77D97DD61AF7ECCA00C765A8 /* Q1_2015_IE.pdf in Resources */,
 				776EA9D71A06276A00C2CC75 /* Icon-40@3x.png in Resources */,
 				77B8F18619A130A1001CB660 /* Icon-72.png in Resources */,
 				77B8F19D19A130A1001CB660 /* pm_logo_main.png in Resources */,
@@ -1317,12 +1316,13 @@
 				7706539719BF3574001E1BE9 /* ibeacon_screen_1.png in Resources */,
 				77B8F19719A130A1001CB660 /* dots_left.png in Resources */,
 				77B8F1A119A130A1001CB660 /* tab_bar.png in Resources */,
+				FC141B401B62965300A42DFE /* Q2_2015_Atlanta.pdf in Resources */,
 				77C6FB4019AA144200A74996 /* ContactsCell.xib in Resources */,
 				776EA9D61A06276A00C2CC75 /* Icon-29@3x.png in Resources */,
-				77D97DC81AF7ECCA00C765A8 /* Q1_2015_Atlanta_cover.jpg in Resources */,
 				77B8F19C19A130A1001CB660 /* menu_icon.png in Resources */,
 				77B8F16819A130A1001CB660 /* back_arrow_btn.png in Resources */,
 				77B8F17F19A130A1001CB660 /* Icon-40.png in Resources */,
+				FC141B4B1B62968200A42DFE /* Q2_2015_OC.pdf in Resources */,
 				77B8F19F19A130A1001CB660 /* reports_btn.png in Resources */,
 				77699D8219B1D2A1009EC88B /* blue_circle.png in Resources */,
 				77699D8A19B25912009EC88B /* News_List.plist in Resources */,
