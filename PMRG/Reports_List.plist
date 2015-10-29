@@ -12,11 +12,11 @@
 			<key>title</key>
 			<string>Office Market</string>
 			<key>description</key>
-			<string>2Q | 2015</string>
+			<string>3Q | 2015</string>
 			<key>image</key>
-			<string>Q2_2015_OC_cover.jpg</string>
+			<string>Q3_2015_OC_cover.jpg</string>
 			<key>pdf_file</key>
-			<string>Q2_2015_OC.pdf</string>
+			<string>Q3_2015_OC.pdf</string>
 			<key>pdf_link</key>
 			<string>http://www.pmrg.com/media/pdfs/Q2_2014_OC_Office_Market_at_a_Glance.pdf</string>
 		</dict>
@@ -28,11 +28,11 @@
 			<key>title</key>
 			<string>Medical Office Market</string>
 			<key>description</key>
-			<string>2Q | 2015</string>
+			<string>3Q | 2015</string>
 			<key>image</key>
-			<string>Q2_2015_OC_MOB_cover.jpg</string>
+			<string>Q3_2015_OC_Medical_cover.jpg</string>
 			<key>pdf_file</key>
-			<string>Q2_2015_OC_MOB.pdf</string>
+			<string>Q3_2015_OC_Medical.pdf</string>
 			<key>pdf_link</key>
 			<string>http://www.pmrg.com/media/pdfs/Q2_2014_OC_Medical_Office_Market_at_a_Glance.pdf</string>
 		</dict>
@@ -44,11 +44,11 @@
 			<key>title</key>
 			<string>Office Market</string>
 			<key>description</key>
-			<string>2Q | 2015</string>
+			<string>3Q | 2015</string>
 			<key>image</key>
-			<string>Q2_2015_LA_cover.jpg</string>
+			<string>Q3_2015_LA_cover.jpg</string>
 			<key>pdf_file</key>
-			<string>Q2_2015_LA.pdf</string>
+			<string>Q3_2015_LA.pdf</string>
 			<key>pdf_link</key>
 			<string>http://www.pmrg.com/media/pdfs/Q2_2014_LA_Office_Market_At_A_Glance.pdf</string>
 		</dict>
@@ -60,11 +60,11 @@
 			<key>title</key>
 			<string>Medical Office Market</string>
 			<key>description</key>
-			<string>2Q | 2015</string>
+			<string>3Q | 2015</string>
 			<key>image</key>
-			<string>Q2_2015_LA_MOB_cover.jpg</string>
+			<string>Q3_2015_LA_Medical_cover.jpg</string>
 			<key>pdf_file</key>
-			<string>Q2_2015_LA_MOB.pdf</string>
+			<string>Q3_2015_LA_Medical.pdf</string>
 			<key>pdf_link</key>
 			<string>http://www.pmrg.com/media/pdfs/Q2_2014_LA_Office_Market_At_A_Glance.pdf</string>
 		</dict>
@@ -76,11 +76,11 @@
 			<key>title</key>
 			<string>Office Market</string>
 			<key>description</key>
-			<string>2Q | 2015</string>
+			<string>3Q | 2015</string>
 			<key>image</key>
-			<string>Q2_2015_IE_cover.jpg</string>
+			<string>Q3_2015_InlandEmpire_cover.jpg</string>
 			<key>pdf_file</key>
-			<string>Q2_2015_IE.pdf</string>
+			<string>Q3_2015_InlandEmpire.pdf</string>
 			<key>pdf_link</key>
 			<string>http://www.pmrg.com/media/pdfs/Q2_2014_IE_Office_Market_at_a_Glance.pdf</string>
 		</dict>
@@ -92,11 +92,11 @@
 			<key>title</key>
 			<string>Office Market</string>
 			<key>description</key>
-			<string>2Q | 2015</string>
+			<string>3Q | 2015</string>
 			<key>image</key>
-			<string>Q2_2015_SanDiego_cover.jpg</string>
+			<string>Q3_2015_SanDiego_cover.jpg</string>
 			<key>pdf_file</key>
-			<string>Q2_2015_SanDiego.pdf</string>
+			<string>Q3_2015_SanDiego.pdf</string>
 			<key>pdf_link</key>
 			<string>http://www.pmrg.com/media/pdfs/Q2_2014_San_Diego_Office_Market_at_a_Glance.pdf</string>
 		</dict>
@@ -111,11 +111,11 @@
 			<key>title</key>
 			<string>Office Market</string>
 			<key>description</key>
-			<string>2Q | 2015</string>
+			<string>3Q | 2015</string>
 			<key>image</key>
-			<string>Q2_2015_Houston_cover.jpg</string>
+			<string>Q3_2015_Houston_cover.jpg</string>
 			<key>pdf_file</key>
-			<string>Q2_2015_Houston.pdf</string>
+			<string>Q3_2015_Houston.pdf</string>
 			<key>pdf_link</key>
 			<string>http://www.pmrg.com/media/pdfs/Q2_2014_Houston_Office_Market_at_a_Glance.pdf</string>
 		</dict>
@@ -127,11 +127,11 @@
 			<key>title</key>
 			<string>Office Market</string>
 			<key>description</key>
-			<string>2Q | 2015</string>
+			<string>3Q | 2015</string>
 			<key>image</key>
-			<string>Q2_2015_Dallas_cover.jpg</string>
+			<string>Q3_2015_Dallas_cover.jpg</string>
 			<key>pdf_file</key>
-			<string>Q2_2015_Dallas.pdf</string>
+			<string>Q3_2015_Dallas.pdf</string>
 			<key>pdf_link</key>
 			<string>http://www.pmrg.com/media/pdfs/Q2_2014_Dallas_Office_Market_at_a_Glance.pdf</string>
 		</dict>
@@ -146,11 +146,11 @@
 			<key>title</key>
 			<string>Office Market</string>
 			<key>description</key>
-			<string>2Q | 2015</string>
+			<string>3Q | 2015</string>
 			<key>image</key>
-			<string>Q2_2015_Atlanta_cover.jpg</string>
+			<string>Q3_2015_Atlanta_cover.jpg</string>
 			<key>pdf_file</key>
-			<string>Q2_2015_Atlanta.pdf</string>
+			<string>Q3_2015_Atlanta.pdf</string>
 			<key>pdf_link</key>
 			<string>http://www.pmrg.com/media/pdfs/Q2_2014_Atlanta_Office_Market_at_a_Glance.pdf</string>
 		</dict>
@@ -165,11 +165,11 @@
 			<key>title</key>
 			<string>Office Market</string>
 			<key>description</key>
-			<string>2Q | 2015</string>
+			<string>3Q | 2015</string>
 			<key>image</key>
-			<string>Q2_2015_DC_cover.jpg</string>
+			<string>Q3_2015_DC_cover.jpg</string>
 			<key>pdf_file</key>
-			<string>Q2_2015_DC.pdf</string>
+			<string>Q3_2015_DC.pdf</string>
 			<key>pdf_link</key>
 			<string></string>
 		</dict>
